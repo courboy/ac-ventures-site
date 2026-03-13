@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNameSelection();
     initPipelineFilters();
     initPipelineMap();
+    initTableSort();
 });
 
 // ========================================
@@ -169,6 +170,76 @@ function initNameSelection() {
                 const initials = selectedName.split(' ').map(w => w[0]).join('').substring(0, 2);
                 companyMark.textContent = initials;
             }
+        });
+    });
+}
+
+// ========================================
+// TABLE SORTING
+// ========================================
+
+function initTableSort() {
+    const table = document.querySelector('.pipeline-table');
+    if (!table) return;
+    
+    const headers = table.querySelectorAll('th');
+    const tbody = table.querySelector('tbody');
+    
+    headers.forEach((header, index) => {
+        header.style.cursor = 'pointer';
+        header.dataset.sortDir = 'none';
+        
+        // Add sort indicator
+        const indicator = document.createElement('span');
+        indicator.className = 'sort-indicator';
+        indicator.textContent = ' ↕';
+        header.appendChild(indicator);
+        
+        header.addEventListener('click', () => {
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const currentDir = header.dataset.sortDir;
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+            
+            // Reset all headers
+            headers.forEach(h => {
+                h.dataset.sortDir = 'none';
+                h.querySelector('.sort-indicator').textContent = ' ↕';
+            });
+            
+            header.dataset.sortDir = newDir;
+            header.querySelector('.sort-indicator').textContent = newDir === 'asc' ? ' ↑' : ' ↓';
+            
+            rows.sort((a, b) => {
+                let aVal = a.cells[index]?.textContent.trim() || '';
+                let bVal = b.cells[index]?.textContent.trim() || '';
+                
+                // Handle price columns (remove $, M, etc.)
+                if (aVal.includes('$') || aVal.includes('M')) {
+                    aVal = parseFloat(aVal.replace(/[$,M]/g, '')) || 0;
+                    bVal = parseFloat(bVal.replace(/[$,M]/g, '')) || 0;
+                }
+                // Handle percentage columns
+                else if (aVal.includes('%')) {
+                    aVal = parseFloat(aVal.replace('%', '')) || 0;
+                    bVal = parseFloat(bVal.replace('%', '')) || 0;
+                }
+                // Handle size columns (numbers with commas)
+                else if (/^[\d,]+$/.test(aVal.replace(/,/g, ''))) {
+                    aVal = parseInt(aVal.replace(/,/g, '')) || 0;
+                    bVal = parseInt(bVal.replace(/,/g, '')) || 0;
+                }
+                
+                if (typeof aVal === 'number' && typeof bVal === 'number') {
+                    return newDir === 'asc' ? aVal - bVal : bVal - aVal;
+                }
+                
+                return newDir === 'asc' 
+                    ? aVal.localeCompare(bVal)
+                    : bVal.localeCompare(aVal);
+            });
+            
+            // Re-append sorted rows
+            rows.forEach(row => tbody.appendChild(row));
         });
     });
 }
