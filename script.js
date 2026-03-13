@@ -211,6 +211,7 @@ function initPipelineMap() {
         const lat = parseFloat(row.dataset.lat);
         const lng = parseFloat(row.dataset.lng);
         const country = row.dataset.country;
+        const isBoutique = row.classList.contains('boutique');
         
         if (isNaN(lat) || isNaN(lng)) return;
         
@@ -221,8 +222,8 @@ function initPipelineMap() {
         const yieldPct = row.cells[5]?.textContent || '';
         const link = row.querySelector('.listing-link')?.href || '#';
         
-        // Create custom marker
-        const markerColor = countryColors[country] || '#3B82F6';
+        // Create custom marker - purple for boutique
+        const markerColor = isBoutique ? '#8B5CF6' : (countryColors[country] || '#3B82F6');
         const markerHtml = `<div style="
             background: ${markerColor};
             width: 12px;
@@ -253,15 +254,24 @@ function initPipelineMap() {
         
         marker.bindPopup(popupContent);
         marker.country = country;
+        marker.isBoutique = isBoutique;
         mapMarkers.push(marker);
     });
 }
 
-function filterMapMarkers(country) {
+function filterMapMarkers(filter) {
     if (!pipelineMap) return;
     
     mapMarkers.forEach(marker => {
-        if (country === 'all' || marker.country === country) {
+        if (filter === 'all') {
+            marker.addTo(pipelineMap);
+        } else if (filter === 'boutique') {
+            if (marker.isBoutique) {
+                marker.addTo(pipelineMap);
+            } else {
+                pipelineMap.removeLayer(marker);
+            }
+        } else if (marker.country === filter) {
             marker.addTo(pipelineMap);
         } else {
             pipelineMap.removeLayer(marker);
@@ -269,7 +279,15 @@ function filterMapMarkers(country) {
     });
     
     // Fit bounds to visible markers
-    const visibleMarkers = mapMarkers.filter(m => country === 'all' || m.country === country);
+    let visibleMarkers;
+    if (filter === 'all') {
+        visibleMarkers = mapMarkers;
+    } else if (filter === 'boutique') {
+        visibleMarkers = mapMarkers.filter(m => m.isBoutique);
+    } else {
+        visibleMarkers = mapMarkers.filter(m => m.country === filter);
+    }
+    
     if (visibleMarkers.length > 0) {
         const group = L.featureGroup(visibleMarkers);
         pipelineMap.fitBounds(group.getBounds().pad(0.1));
@@ -294,7 +312,18 @@ function initPipelineFilters() {
             
             // Filter rows
             rows.forEach(row => {
-                if (filter === 'all' || row.dataset.country === filter) {
+                if (filter === 'all') {
+                    row.style.display = '';
+                    row.style.opacity = '1';
+                } else if (filter === 'boutique') {
+                    // Show only boutique broker deals
+                    if (row.classList.contains('boutique')) {
+                        row.style.display = '';
+                        row.style.opacity = '1';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                } else if (row.dataset.country === filter) {
                     row.style.display = '';
                     row.style.opacity = '1';
                 } else {
