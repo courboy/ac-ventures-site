@@ -1399,6 +1399,479 @@ button:hover ~ .cursor {
 }
 
 /* ========================================
+   CLIENT SOURCING SECTION
+   ======================================== */
+
+.sourcing-intro {
+    margin-bottom: 64px;
+}
+
+.sourcing-intro .ai-statement {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+}
+
+.sourcing-intro .ai-statement p {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.sourcing-intro .ai-statement .highlight {
+    font-size: 24px;
+    margin-top: 24px;
+    color: var(--accent);
+}
+
+.sourcing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.sourcing-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all var(--transition-base);
+}
+
+.sourcing-card:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(0,102,255,0.3);
+}
+
+.sourcing-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.sourcing-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.sourcing-what {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+}
+
+.sourcing-list {
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.sourcing-list li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--gray-300);
+    padding-left: 20px;
+    position: relative;
+}
+
+.sourcing-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--gray-500);
+}
+
+.sourcing-ai {
+    background: rgba(0,102,255,0.1);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    border-left: 3px solid var(--primary);
+}
+
+.ai-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.sourcing-ai p {
+    font-size: 13px;
+    color: var(--gray-300);
+    line-height: 1.6;
+}
+
+.sell-section {
+    margin-bottom: 64px;
+}
+
+.sell-section h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.sell-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.sell-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-md);
+    padding: 24px;
+}
+
+.sell-hook {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sell-card p {
+    font-size: 14px;
+    color: var(--gray-400);
+    line-height: 1.6;
+}
+
+.outreach-math h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.math-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.math-column {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+}
+
+.math-column.ours {
+    background: rgba(0,102,255,0.1);
+    border-color: rgba(0,102,255,0.3);
+}
+
+.math-column h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.math-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.math-row:last-child {
+    border-bottom: none;
+}
+
+.math-row.total {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px solid rgba(255,255,255,0.1);
+    border-bottom: none;
+}
+
+.math-label {
+    font-size: 14px;
+    color: var(--gray-400);
+}
+
+.math-value {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.math-value.bad {
+    color: var(--gray-400);
+}
+
+.math-value.good {
+    color: var(--accent);
+    font-size: 18px;
+}
+
+/* ========================================
+   DETAILED AGENTS
+   ======================================== */
+
+.agents-detailed {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.agent-detail {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.agent-detail:hover {
+    border-color: rgba(0,102,255,0.3);
+}
+
+.agent-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 32px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.agent-icon-large {
+    width: 56px;
+    height: 56px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.agent-icon-large svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--white);
+}
+
+.agent-title {
+    flex: 1;
+}
+
+.agent-title h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.agent-title p {
+    font-size: 14px;
+    color: var(--gray-500);
+}
+
+.agent-hours-badge {
+    background: rgba(0,212,255,0.1);
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.agent-body {
+    padding: 32px;
+}
+
+.deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.deliverable {
+    background: rgba(255,255,255,0.02);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    border-left: 3px solid transparent;
+}
+
+.deliverable.mundane {
+    border-left-color: var(--gray-500);
+}
+
+.deliverable.medium {
+    border-left-color: var(--primary);
+}
+
+.deliverable.complex {
+    border-left-color: var(--accent);
+}
+
+.complexity {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.deliverable.mundane .complexity {
+    background: rgba(107,114,128,0.2);
+    color: var(--gray-400);
+}
+
+.deliverable.medium .complexity {
+    background: rgba(0,102,255,0.2);
+    color: var(--primary-light);
+}
+
+.deliverable.complex .complexity {
+    background: rgba(0,212,255,0.2);
+    color: var(--accent);
+}
+
+.deliverable h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.deliverable p {
+    font-size: 13px;
+    color: var(--gray-400);
+    line-height: 1.6;
+}
+
+/* ========================================
+   ECONOMICS COSTS
+   ======================================== */
+
+.econ-costs {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin: 32px 0;
+}
+
+.econ-costs h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.costs-grid {
+    display: grid;
+    gap: 12px;
+}
+
+.cost-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.cost-item:last-child {
+    border-bottom: none;
+}
+
+.cost-item.total {
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 2px solid rgba(255,255,255,0.1);
+    border-bottom: none;
+}
+
+.cost-label {
+    font-size: 14px;
+    color: var(--gray-400);
+}
+
+.cost-value {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cost-item.total .cost-value {
+    color: var(--accent);
+}
+
+/* ========================================
+   SUMMARY SECTION
+   ======================================== */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.summary-item {
+    padding: 32px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-lg);
+}
+
+.summary-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.summary-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.summary-item p {
+    font-size: 14px;
+    color: var(--gray-400);
+    line-height: 1.6;
+}
+
+.closing-quote {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.closing-quote blockquote {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.closing-quote cite {
+    font-size: 14px;
+    color: var(--gray-500);
+}
+
+/* ========================================
    RESPONSIVE
    ======================================== */
 
@@ -1462,5 +1935,25 @@ button:hover ~ .cursor {
     .diff-item {
         flex-direction: column;
         gap: 16px;
+    }
+    
+    .sourcing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sell-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .math-visual {
+        grid-template-columns: 1fr;
+    }
+    
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .deliverables-grid {
+        grid-template-columns: 1fr;
     }
 }
