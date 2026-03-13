@@ -3,826 +3,790 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AC Ventures — Business Plan</title>
+    <title>Courtenay Partners — Business Plan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- Cursor follower -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-
+<body class="dashboard-mode">
     <!-- Progress bar -->
     <div class="progress-bar"></div>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-logo">AC Ventures</div>
-        <div class="nav-links">
-            <a href="#opportunity" class="nav-link">Opportunity</a>
-            <a href="#model" class="nav-link">Model</a>
-            <a href="#markets" class="nav-link">Markets</a>
-            <a href="#sourcing" class="nav-link">Client Sourcing</a>
-            <a href="#ai" class="nav-link">AI Engine</a>
-            <a href="#economics" class="nav-link">Economics</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-            <div class="grid-overlay"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-badge" data-aos="fade-up">
-                <span class="pulse"></span>
-                Business Plan — Adam & Becca
-            </div>
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                <span class="title-line">AC Ventures</span>
-                <span class="title-line gradient-text">APAC Real Estate</span>
-                <span class="title-line">Advisory Platform</span>
-            </h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                An AI-powered external investment arm for family offices seeking APAC real estate exposure. Two principals operating like a 10-person team through intelligent automation.
-            </p>
-            <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-                <a href="#opportunity" class="btn btn-large btn-primary">
-                    View Business Plan
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 5v14M5 12l7 7 7-7"/>
-                    </svg>
-                </a>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="company-mark">CP</div>
+            <div class="company-info">
+                <div class="company-name">Courtenay Partners</div>
+                <div class="company-type">Business Plan</div>
             </div>
         </div>
-        <div class="hero-scroll">
-            <div class="scroll-indicator">
-                <span></span>
-            </div>
+        <nav class="sidebar-nav">
+            <a href="#overview" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Overview
+            </a>
+            <a href="#opportunity" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Market Opportunity
+            </a>
+            <a href="#model" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Business Model
+            </a>
+            <a href="#markets" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                Target Markets
+            </a>
+            <a href="#sourcing" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                Client Acquisition
+            </a>
+            <a href="#ai" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/><path d="M7.5 13a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/><path d="M16.5 13a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
+                AI Operations
+            </a>
+            <a href="#economics" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                Economics
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="version-tag">Draft v1.0</div>
+            <div class="date-tag">March 2026</div>
         </div>
-    </section>
+    </aside>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar">
-        <div class="stats-container">
-            <div class="stat" data-aos="fade-up">
-                <div class="stat-number" data-count="201">0</div>
-                <div class="stat-label">Billion USD<br>APAC CRE 2025</div>
-            </div>
-            <div class="stat" data-aos="fade-up" data-aos-delay="100">
-                <div class="stat-number" data-count="1">0</div>
-                <div class="stat-label">Percent<br>Origination Fee</div>
-            </div>
-            <div class="stat" data-aos="fade-up" data-aos-delay="200">
-                <div class="stat-number" data-count="4">0</div>
-                <div class="stat-label">Target<br>Markets</div>
-            </div>
-            <div class="stat" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-number" data-count="10">0</div>
-                <div class="stat-label">x Outreach<br>Capacity</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Opportunity Section -->
-    <section class="section section-dark" id="opportunity">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">The Opportunity</span>
-                <h2 class="section-title">Family offices want APAC.<br><span class="gradient-text">They just can't access it.</span></h2>
-            </div>
-            
-            <div class="problem-grid">
-                <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3>No Local Presence</h3>
-                    <p>Can't evaluate deals properly from NY/London/Zurich. Time zones, languages, and relationships all matter.</p>
-                </div>
-                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h3>Information Asymmetry</h3>
-                    <p>Brokers and local players have the edge. By the time you see a deal, the best terms are already negotiated.</p>
-                </div>
-                <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M9 9h6v6H9z"/>
-                        </svg>
-                    </div>
-                    <h3>Deal Flow Access</h3>
-                    <p>The best opportunities go to repeat players with established relationships. One-time buyers see the leftovers.</p>
-                </div>
-                <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                        </svg>
-                    </div>
-                    <h3>Execution Complexity</h3>
-                    <p>12 markets, 12 legal systems, 12 tax regimes. Cross-border structuring requires specialist knowledge.</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Overview Section -->
+        <section class="section" id="overview">
+            <div class="section-header-bar">
+                <div class="section-breadcrumb">Business Plan / Overview</div>
+                <div class="section-actions">
+                    <span class="status-badge">Internal Document</span>
                 </div>
             </div>
 
-            <div class="solution-reveal" data-aos="fade-up">
-                <div class="solution-card glass">
-                    <div class="solution-header">
-                        <span class="solution-badge">Our Position</span>
-                        <h3>We become their embedded APAC team</h3>
-                    </div>
-                    <p>Not transactional advisors. Not consultants who bill by the hour. We're their dedicated real estate desk—always on, deeply aligned through retainer exclusivity, with AI allowing us to operate at 10x capacity.</p>
-                    <div class="solution-features">
-                        <div class="feature-tag">Retainer + 1% Origination</div>
-                        <div class="feature-tag">Non-Competing Mandates</div>
-                        <div class="feature-tag">AI-Powered Analysis</div>
-                        <div class="feature-tag">48-Hour Turnaround</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Model Section -->
-    <section class="section" id="model">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Business Model</span>
-                <h2 class="section-title">Simple fee structure.<br><span class="gradient-text">Aligned incentives.</span></h2>
+            <div class="page-header">
+                <h1>Courtenay Partners</h1>
+                <p class="page-subtitle">APAC Real Estate Advisory for Family Offices</p>
             </div>
 
-            <div class="model-grid">
-                <div class="model-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="model-number">01</div>
-                    <h3>Retainer</h3>
-                    <div class="model-price">$10-20K<span>/month</span></div>
-                    <ul class="model-features">
-                        <li>Dedicated coverage</li>
-                        <li>Exclusive mandates (non-competing)</li>
-                        <li>Travel & upfront DD costs</li>
-                        <li>Monthly strategy calls</li>
-                        <li>Weekly market briefs</li>
-                        <li>48-hour deal analysis</li>
-                    </ul>
+            <div class="name-options-card">
+                <div class="card-header">
+                    <h3>📝 Name Options (For Discussion)</h3>
                 </div>
-                <div class="model-card primary" data-aos="fade-up" data-aos-delay="200">
-                    <div class="model-number">02</div>
-                    <h3>Origination Fee</h3>
-                    <div class="model-price">1%<span>of deal value</span></div>
-                    <ul class="model-features">
-                        <li>On successful acquisitions</li>
-                        <li>Fully aligned with outcomes</li>
-                        <li>Standard market rate</li>
-                        <li>Scales with deal size</li>
-                        <li>Transparent structure</li>
-                        <li>No hidden fees</li>
-                    </ul>
-                </div>
-                <div class="model-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="model-number">03</div>
-                    <h3>Add-On Services</h3>
-                    <div class="model-price">Bespoke<span>pricing</span></div>
-                    <ul class="model-features">
-                        <li>IC report preparation</li>
-                        <li>Asset management advisory</li>
-                        <li>Portfolio strategy reviews</li>
-                        <li>Market deep dives</li>
-                        <li>Ongoing monitoring</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="exclusivity-visual" data-aos="fade-up">
-                <h3>Non-Competing Mandates</h3>
-                <p>One client per mandate type per market. Your interests are always protected.</p>
-                <div class="exclusivity-demo">
-                    <div class="mandate-example valid">
-                        <span class="check">✓</span>
-                        <div>Client A: Tokyo Prime Office</div>
+                <div class="name-grid">
+                    <div class="name-option selected">
+                        <div class="name-title">Courtenay Partners</div>
+                        <div class="name-rationale">Personal brand, trust signal, traditional</div>
                     </div>
-                    <div class="mandate-example valid">
-                        <span class="check">✓</span>
-                        <div>Client B: Singapore Prime Office</div>
+                    <div class="name-option">
+                        <div class="name-title">Meridian Partners</div>
+                        <div class="name-rationale">Geographic reference, partnership feel</div>
                     </div>
-                    <div class="mandate-example invalid">
-                        <span class="cross">✗</span>
-                        <div>Client C: Tokyo Prime Office</div>
-                        <span class="conflict-tag">Conflicts with A</span>
+                    <div class="name-option">
+                        <div class="name-title">Vantage Capital</div>
+                        <div class="name-rationale">Elevated perspective, investment focus</div>
+                    </div>
+                    <div class="name-option">
+                        <div class="name-title">Arbor Partners</div>
+                        <div class="name-rationale">Growth theme, long-term orientation</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Markets Section -->
-    <section class="section section-dark" id="markets">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Geographic Focus</span>
-                <h2 class="section-title">Four markets where we have<br><span class="gradient-text">relationships and data advantages.</span></h2>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-label">APAC CRE Market</div>
+                    <div class="kpi-value">$201B</div>
+                    <div class="kpi-change positive">+14% YoY</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Origination Fee</div>
+                    <div class="kpi-value">1%</div>
+                    <div class="kpi-sublabel">Per transaction</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Target Markets</div>
+                    <div class="kpi-value">4</div>
+                    <div class="kpi-sublabel">JP, AU, SG, HK</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">AI Leverage</div>
+                    <div class="kpi-value">10x</div>
+                    <div class="kpi-sublabel">Outreach capacity</div>
+                </div>
             </div>
 
-            <div class="markets-showcase">
-                <div class="market-card-large" data-aos="fade-up" data-market="japan">
-                    <div class="market-rank">#1</div>
-                    <div class="market-flag">🇯🇵</div>
-                    <h3>Japan</h3>
-                    <div class="market-edge">Largest APAC market, weak yen opportunity</div>
-                    <div class="market-stats">
-                        <div class="market-stat">
-                            <span class="stat-value">3.0-3.5%</span>
-                            <span class="stat-label">Office Cap Rate</span>
-                        </div>
-                        <div class="market-stat">
-                            <span class="stat-value">$52B+</span>
-                            <span class="stat-label">2025 Volume</span>
+            <div class="thesis-card">
+                <div class="card-header">
+                    <h3>Investment Thesis</h3>
+                </div>
+                <div class="thesis-content">
+                    <div class="thesis-point">
+                        <span class="thesis-number">01</span>
+                        <div class="thesis-text">
+                            <strong>The Gap:</strong> Family offices want APAC RE exposure but lack local presence, deal flow access, and execution capability.
                         </div>
                     </div>
-                    <div class="market-glow"></div>
-                </div>
-
-                <div class="markets-grid-small">
-                    <div class="market-card-small" data-aos="fade-up" data-aos-delay="100" data-market="australia">
-                        <div class="market-rank">#2</div>
-                        <div class="market-flag">🇦🇺</div>
-                        <h3>Australia</h3>
-                        <div class="market-edge">Best data transparency, UK parallels</div>
-                        <div class="market-cap">5.0-5.5% Office</div>
+                    <div class="thesis-point">
+                        <span class="thesis-number">02</span>
+                        <div class="thesis-text">
+                            <strong>Our Solution:</strong> Embedded external investment arm with retainer + 1% origination, non-competing mandates, AI-powered operations.
+                        </div>
                     </div>
-                    <div class="market-card-small" data-aos="fade-up" data-aos-delay="200" data-market="singapore">
-                        <div class="market-rank">#3</div>
-                        <div class="market-flag">🇸🇬</div>
-                        <h3>Singapore</h3>
-                        <div class="market-edge">Home base, client hub</div>
-                        <div class="market-cap">3.0-3.5% Office</div>
-                    </div>
-                    <div class="market-card-small" data-aos="fade-up" data-aos-delay="300" data-market="hongkong">
-                        <div class="market-rank">#4</div>
-                        <div class="market-flag">🇭🇰</div>
-                        <h3>Hong Kong</h3>
-                        <div class="market-edge">Deep repricing, value timing</div>
-                        <div class="market-cap">3.5-4.5% Office</div>
+                    <div class="thesis-point">
+                        <span class="thesis-number">03</span>
+                        <div class="thesis-text">
+                            <strong>The Edge:</strong> Two principals operating at 10x capacity through intelligent automation. 48-hour deal analysis, 200+ outreach/week.
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="sectors-strip" data-aos="fade-up">
-                <div class="sector-pill active">
-                    <span class="sector-priority">Priority #1</span>
-                    Value-Add Office
+            <div class="founders-card">
+                <div class="card-header">
+                    <h3>Founding Team</h3>
                 </div>
-                <div class="sector-pill">
-                    <span class="sector-priority">Priority #2</span>
-                    Value-Add Industrial
-                </div>
-                <div class="sector-pill">
-                    <span class="sector-priority">Opportunistic</span>
-                    Forward Commit
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Sourcing Section - NEW -->
-    <section class="section" id="sourcing">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Client Acquisition</span>
-                <h2 class="section-title">How we find clients.<br><span class="gradient-text">AI-powered at scale.</span></h2>
-            </div>
-
-            <div class="sourcing-intro" data-aos="fade-up">
-                <div class="ai-statement glass">
-                    <p>Traditional advisory: <strong>20-30 outreach per week</strong> → manual research, manual emails, manual follow-up.</p>
-                    <p>Our approach: <strong>200-300 qualified outreach per week</strong> → AI research, AI drafts, systematic follow-up.</p>
-                    <p class="highlight">That's <strong>10x outreach capacity</strong> from day one.</p>
-                </div>
-            </div>
-
-            <div class="sourcing-grid">
-                <div class="sourcing-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="sourcing-number">01</div>
-                    <h3>Target Identification</h3>
-                    <p class="sourcing-what">Who we're looking for</p>
-                    <ul class="sourcing-list">
-                        <li>Family offices with $100M-2B RE capacity</li>
-                        <li>APAC allocation intent but limited presence</li>
-                        <li>Decision-maker accessible</li>
-                        <li>Values relationships over transactions</li>
-                    </ul>
-                    <div class="sourcing-ai">
-                        <span class="ai-badge">AI Does</span>
-                        <p>Scrapes LinkedIn, conference lists, press releases, fund announcements. Builds enriched profiles with AUM, mandate, recent activity. Scores fit automatically.</p>
+                <div class="founders-grid">
+                    <div class="founder">
+                        <div class="founder-name">Adam Courtenay</div>
+                        <div class="founder-role">Deal Origination & Execution</div>
+                        <ul class="founder-credentials">
+                            <li>UK industrial development track record</li>
+                            <li>Cross-border transaction experience</li>
+                            <li>APAC relationship network</li>
+                            <li>Cambridge alumnus</li>
+                        </ul>
+                    </div>
+                    <div class="founder">
+                        <div class="founder-name">Becca Courtenay</div>
+                        <div class="founder-role">Strategy & Operations</div>
+                        <ul class="founder-credentials">
+                            <li>McKinsey Engagement Manager</li>
+                            <li>Strategic analysis & process design</li>
+                            <li>MBB alumni network access</li>
+                            <li>Family office background</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="sourcing-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="sourcing-number">02</div>
-                    <h3>Warm Path Mapping</h3>
-                    <p class="sourcing-what">How we get introduced</p>
-                    <ul class="sourcing-list">
-                        <li>McKinsey alumni network (Becca)</li>
-                        <li>Cambridge alumni network (Adam)</li>
-                        <li>Existing deal counterparties</li>
-                        <li>Conference co-attendees</li>
-                        <li>LinkedIn mutual connections</li>
-                    </ul>
-                    <div class="sourcing-ai">
-                        <span class="ai-badge">AI Does</span>
-                        <p>Maps every prospect against our combined network. Identifies shortest intro path. Prioritizes warm over cold. Suggests specific intro requests.</p>
-                    </div>
+        <!-- Opportunity Section -->
+        <section class="section" id="opportunity">
+            <div class="section-header-bar">
+                <div class="section-breadcrumb">Business Plan / Market Opportunity</div>
+            </div>
+
+            <div class="page-header">
+                <h1>Market Opportunity</h1>
+                <p class="page-subtitle">Why family offices struggle with APAC real estate</p>
+            </div>
+
+            <div class="problem-analysis">
+                <div class="analysis-header">
+                    <h3>Problem Analysis</h3>
                 </div>
-
-                <div class="sourcing-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="sourcing-number">03</div>
-                    <h3>Outreach Execution</h3>
-                    <p class="sourcing-what">How we reach them</p>
-                    <ul class="sourcing-list">
-                        <li>Personalized email sequences</li>
-                        <li>LinkedIn engagement strategy</li>
-                        <li>Conference targeting</li>
-                        <li>Thought leadership content</li>
-                        <li>Referral requests from clients</li>
-                    </ul>
-                    <div class="sourcing-ai">
-                        <span class="ai-badge">AI Does</span>
-                        <p>Drafts personalized emails using prospect context. Manages follow-up sequences (Day 3, 7, 14, 30). Tracks responses. A/B tests messaging. We review and send.</p>
+                <div class="problem-table">
+                    <div class="problem-row">
+                        <div class="problem-icon">🌏</div>
+                        <div class="problem-name">No Local Presence</div>
+                        <div class="problem-desc">Can't evaluate deals properly from NY/London/Zurich. Time zones, languages, relationships matter.</div>
+                        <div class="problem-impact">High</div>
                     </div>
-                </div>
-
-                <div class="sourcing-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="sourcing-number">04</div>
-                    <h3>Intent Monitoring</h3>
-                    <p class="sourcing-what">When to reach out</p>
-                    <ul class="sourcing-list">
-                        <li>New fund launches</li>
-                        <li>Hiring signals (building APAC team)</li>
-                        <li>Mandate announcements</li>
-                        <li>Conference registrations</li>
-                        <li>Leadership changes</li>
-                    </ul>
-                    <div class="sourcing-ai">
-                        <span class="ai-badge">AI Does</span>
-                        <p>Monitors news, job postings, regulatory filings for intent signals. Alerts us when a prospect moves from "monitor" to "ready to approach."</p>
+                    <div class="problem-row">
+                        <div class="problem-icon">📊</div>
+                        <div class="problem-name">Information Asymmetry</div>
+                        <div class="problem-desc">Brokers and local players have the edge. Best terms already negotiated before you see the deal.</div>
+                        <div class="problem-impact">High</div>
+                    </div>
+                    <div class="problem-row">
+                        <div class="problem-icon">🚪</div>
+                        <div class="problem-name">Deal Flow Access</div>
+                        <div class="problem-desc">Best opportunities go to repeat players with relationships. One-time buyers see leftovers.</div>
+                        <div class="problem-impact">Medium</div>
+                    </div>
+                    <div class="problem-row">
+                        <div class="problem-icon">⚙️</div>
+                        <div class="problem-name">Execution Complexity</div>
+                        <div class="problem-desc">12 markets, 12 legal systems, 12 tax regimes. Cross-border structuring is hard.</div>
+                        <div class="problem-impact">Medium</div>
                     </div>
                 </div>
             </div>
 
-            <div class="sell-section" data-aos="fade-up">
-                <h3>The Sell: What We Tell Prospects</h3>
+            <div class="alternatives-analysis">
+                <div class="analysis-header">
+                    <h3>Current Alternatives (All Flawed)</h3>
+                </div>
+                <div class="alternatives-grid">
+                    <div class="alternative-card">
+                        <div class="alt-name">Big Advisory (JLL/CBRE)</div>
+                        <div class="alt-problem">Transactional, no ongoing relationship. You're one of thousands.</div>
+                        <div class="alt-verdict negative">❌ Not embedded</div>
+                    </div>
+                    <div class="alternative-card">
+                        <div class="alt-name">Hire In-House Team</div>
+                        <div class="alt-problem">$500K+ annually. Can't justify for occasional deal frequency.</div>
+                        <div class="alt-verdict negative">❌ Too expensive</div>
+                    </div>
+                    <div class="alternative-card">
+                        <div class="alt-name">Go Direct to Managers</div>
+                        <div class="alt-problem">Get sold what they're raising, not what fits your mandate.</div>
+                        <div class="alt-verdict negative">❌ Misaligned</div>
+                    </div>
+                    <div class="alternative-card ours">
+                        <div class="alt-name">Courtenay Partners</div>
+                        <div class="alt-problem">Dedicated team, aligned incentives, AI-powered capacity.</div>
+                        <div class="alt-verdict positive">✓ Best of all worlds</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Model Section -->
+        <section class="section" id="model">
+            <div class="section-header-bar">
+                <div class="section-breadcrumb">Business Plan / Business Model</div>
+            </div>
+
+            <div class="page-header">
+                <h1>Business Model</h1>
+                <p class="page-subtitle">Revenue structure and client arrangement</p>
+            </div>
+
+            <div class="revenue-model">
+                <div class="analysis-header">
+                    <h3>Revenue Streams</h3>
+                </div>
+                <div class="revenue-grid">
+                    <div class="revenue-card">
+                        <div class="revenue-type">Retainer</div>
+                        <div class="revenue-amount">$10-20K/month</div>
+                        <div class="revenue-details">
+                            <ul>
+                                <li>Dedicated coverage</li>
+                                <li>Non-competing mandates</li>
+                                <li>Travel & upfront DD</li>
+                                <li>Monthly strategy calls</li>
+                                <li>Weekly market briefs</li>
+                                <li>48-hour deal analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="revenue-card primary">
+                        <div class="revenue-type">Origination Fee</div>
+                        <div class="revenue-amount">1% of deal value</div>
+                        <div class="revenue-details">
+                            <ul>
+                                <li>On successful acquisitions</li>
+                                <li>Fully aligned with outcomes</li>
+                                <li>Standard market rate</li>
+                                <li>Scales with deal size</li>
+                                <li>E.g., $50M deal = $500K</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="revenue-card">
+                        <div class="revenue-type">Add-Ons</div>
+                        <div class="revenue-amount">Bespoke</div>
+                        <div class="revenue-details">
+                            <ul>
+                                <li>IC report preparation</li>
+                                <li>Asset management advisory</li>
+                                <li>Portfolio strategy reviews</li>
+                                <li>Market deep dives</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exclusivity-model">
+                <div class="analysis-header">
+                    <h3>Non-Competing Mandates</h3>
+                    <p class="analysis-subheader">One client per mandate type per market. No conflicts.</p>
+                </div>
+                <div class="mandate-examples">
+                    <div class="mandate-row valid">
+                        <span class="mandate-check">✓</span>
+                        <span class="mandate-client">Client A</span>
+                        <span class="mandate-type">Tokyo Prime Office</span>
+                        <span class="mandate-status">Active</span>
+                    </div>
+                    <div class="mandate-row valid">
+                        <span class="mandate-check">✓</span>
+                        <span class="mandate-client">Client B</span>
+                        <span class="mandate-type">Singapore Prime Office</span>
+                        <span class="mandate-status">Active</span>
+                    </div>
+                    <div class="mandate-row invalid">
+                        <span class="mandate-check">✗</span>
+                        <span class="mandate-client">Client C</span>
+                        <span class="mandate-type">Tokyo Prime Office</span>
+                        <span class="mandate-status conflict">Conflicts with A</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Markets Section -->
+        <section class="section" id="markets">
+            <div class="section-header-bar">
+                <div class="section-breadcrumb">Business Plan / Target Markets</div>
+            </div>
+
+            <div class="page-header">
+                <h1>Target Markets</h1>
+                <p class="page-subtitle">Geographic and sector focus</p>
+            </div>
+
+            <div class="markets-table-wrapper">
+                <div class="analysis-header">
+                    <h3>Market Prioritization</h3>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Market</th>
+                            <th>Office Cap Rate</th>
+                            <th>2025 Volume</th>
+                            <th>Foreign Ownership</th>
+                            <th>Our Edge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="rank-badge">#1</span></td>
+                            <td><span class="market-flag">🇯🇵</span> Japan</td>
+                            <td>3.0-3.5%</td>
+                            <td>$52B+</td>
+                            <td>No restrictions</td>
+                            <td>Largest market, weak yen</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">#2</span></td>
+                            <td><span class="market-flag">🇦🇺</span> Australia</td>
+                            <td>5.0-5.5%</td>
+                            <td>$25B+</td>
+                            <td>FIRB approval</td>
+                            <td>Best data, UK parallels</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">#3</span></td>
+                            <td><span class="market-flag">🇸🇬</span> Singapore</td>
+                            <td>3.0-3.5%</td>
+                            <td>$12B+</td>
+                            <td>No restrictions</td>
+                            <td>Home base, client hub</td>
+                        </tr>
+                        <tr>
+                            <td><span class="rank-badge">#4</span></td>
+                            <td><span class="market-flag">🇭🇰</span> Hong Kong</td>
+                            <td>3.5-4.5%</td>
+                            <td>$8B+</td>
+                            <td>No restrictions</td>
+                            <td>Deep repricing, value</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="sectors-table-wrapper">
+                <div class="analysis-header">
+                    <h3>Sector Focus</h3>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Priority</th>
+                            <th>Sector</th>
+                            <th>Thesis</th>
+                            <th>Best Markets</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="priority-badge p1">#1</span></td>
+                            <td>Value-Add Office</td>
+                            <td>Post-COVID repricing, ESG upgrades, Grade B→A conversion</td>
+                            <td>Hong Kong, Australia</td>
+                        </tr>
+                        <tr>
+                            <td><span class="priority-badge p2">#2</span></td>
+                            <td>Value-Add Industrial</td>
+                            <td>E-commerce tailwinds, supply chain diversification, last-mile</td>
+                            <td>Australia, Singapore</td>
+                        </tr>
+                        <tr>
+                            <td><span class="priority-badge p3">OPP</span></td>
+                            <td>Forward Commit</td>
+                            <td>Development premium, custom spec, FO patience advantage</td>
+                            <td>Australia (transparent)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Client Sourcing Section -->
+        <section class="section" id="sourcing">
+            <div class="section-header-bar">
+                <div class="section-breadcrumb">Business Plan / Client Acquisition</div>
+            </div>
+
+            <div class="page-header">
+                <h1>Client Acquisition</h1>
+                <p class="page-subtitle">How we find and convert clients at scale</p>
+            </div>
+
+            <div class="capacity-comparison">
+                <div class="analysis-header">
+                    <h3>Outreach Capacity: Traditional vs AI-Powered</h3>
+                </div>
+                <div class="comparison-visual">
+                    <div class="comparison-side traditional">
+                        <div class="comparison-label">Traditional Advisory</div>
+                        <div class="comparison-metric">
+                            <span class="metric-num">20-30</span>
+                            <span class="metric-unit">prospects/week</span>
+                        </div>
+                        <div class="comparison-breakdown">
+                            <div class="breakdown-row">Research per prospect <span>30 min</span></div>
+                            <div class="breakdown-row">Draft email <span>15 min</span></div>
+                            <div class="breakdown-row">Follow-up mgmt <span>10 min/week</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-arrow">→</div>
+                    <div class="comparison-side ours">
+                        <div class="comparison-label">Courtenay Partners</div>
+                        <div class="comparison-metric">
+                            <span class="metric-num">200-300</span>
+                            <span class="metric-unit">prospects/week</span>
+                        </div>
+                        <div class="comparison-breakdown">
+                            <div class="breakdown-row">AI research + review <span>2 min</span></div>
+                            <div class="breakdown-row">AI draft + review <span>3 min</span></div>
+                            <div class="breakdown-row">Automated follow-up <span>0 min</span></div>
+                        </div>
+                        <div class="multiplier-badge">10x</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acquisition-pipeline">
+                <div class="analysis-header">
+                    <h3>Acquisition Pipeline</h3>
+                </div>
+                <div class="pipeline-stages">
+                    <div class="pipeline-stage">
+                        <div class="stage-number">01</div>
+                        <div class="stage-content">
+                            <h4>Target Identification</h4>
+                            <p>Family offices $100M-2B RE capacity, APAC intent, decision-maker accessible</p>
+                            <div class="ai-does">
+                                <span class="ai-label">AI:</span> Scrapes LinkedIn, conferences, press. Enriches profiles. Scores fit.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-number">02</div>
+                        <div class="stage-content">
+                            <h4>Warm Path Mapping</h4>
+                            <p>McKinsey alumni (Becca), Cambridge network (Adam), deal counterparties</p>
+                            <div class="ai-does">
+                                <span class="ai-label">AI:</span> Cross-references network. Ranks intro paths. Suggests asks.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-number">03</div>
+                        <div class="stage-content">
+                            <h4>Outreach Execution</h4>
+                            <p>Personalized sequences, LinkedIn engagement, thought leadership</p>
+                            <div class="ai-does">
+                                <span class="ai-label">AI:</span> Drafts emails with context. Manages Day 3/7/14/30. A/B tests.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-number">04</div>
+                        <div class="stage-content">
+                            <h4>Intent Monitoring</h4>
+                            <p>Fund launches, hiring signals, mandate announcements, conferences</p>
+                            <div class="ai-does">
+                                <span class="ai-label">AI:</span> Monitors news, jobs, filings. Alerts when prospect is "ready."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sell-points">
+                <div class="analysis-header">
+                    <h3>The Sell: Key Messages</h3>
+                </div>
                 <div class="sell-grid">
-                    <div class="sell-card">
+                    <div class="sell-item">
                         <div class="sell-hook">"We're your APAC team without the headcount."</div>
-                        <p>You get dedicated coverage—monthly calls, weekly briefs, 48-hour deal analysis—without hiring a Singapore office.</p>
+                        <div class="sell-proof">Dedicated coverage, monthly calls, 48-hour analysis—no Singapore office required.</div>
                     </div>
-                    <div class="sell-card">
+                    <div class="sell-item">
                         <div class="sell-hook">"We manage a family office portfolio ourselves."</div>
-                        <p>We're practitioners, not consultants. We know the pain points because we live them. We built these tools for our own use.</p>
+                        <div class="sell-proof">Practitioners, not consultants. We built these tools for our own use.</div>
                     </div>
-                    <div class="sell-card">
+                    <div class="sell-item">
                         <div class="sell-hook">"We don't compete with ourselves."</div>
-                        <p>Non-competing mandates mean your interests are protected. We take one client per strategy per market.</p>
+                        <div class="sell-proof">Non-competing mandates. One client per strategy per market.</div>
                     </div>
-                    <div class="sell-card">
+                    <div class="sell-item">
                         <div class="sell-hook">"We move faster than anyone else."</div>
-                        <p>48-hour deal analysis vs. 2-week industry standard. When timing matters, we're the edge you need.</p>
+                        <div class="sell-proof">48-hour deal analysis vs. 2-week industry standard.</div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="outreach-math" data-aos="fade-up">
-                <h3>The Outreach Math</h3>
-                <div class="math-visual">
-                    <div class="math-column traditional">
-                        <h4>Traditional Advisory</h4>
-                        <div class="math-row">
-                            <span class="math-label">Research per prospect</span>
-                            <span class="math-value">30 min</span>
-                        </div>
-                        <div class="math-row">
-                            <span class="math-label">Draft email</span>
-                            <span class="math-value">15 min</span>
-                        </div>
-                        <div class="math-row">
-                            <span class="math-label">Follow-up management</span>
-                            <span class="math-value">10 min/week</span>
-                        </div>
-                        <div class="math-row total">
-                            <span class="math-label">Weekly capacity</span>
-                            <span class="math-value bad">20-30 prospects</span>
-                        </div>
-                    </div>
-                    <div class="math-column ours">
-                        <h4>AC Ventures</h4>
-                        <div class="math-row">
-                            <span class="math-label">AI research + enrichment</span>
-                            <span class="math-value">2 min review</span>
-                        </div>
-                        <div class="math-row">
-                            <span class="math-label">AI draft + personalization</span>
-                            <span class="math-value">3 min review</span>
-                        </div>
-                        <div class="math-row">
-                            <span class="math-label">Automated follow-up</span>
-                            <span class="math-value">0 min</span>
-                        </div>
-                        <div class="math-row total">
-                            <span class="math-label">Weekly capacity</span>
-                            <span class="math-value good">200-300 prospects</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Section -->
-    <section class="section section-ai" id="ai">
-        <div class="ai-bg">
-            <div class="ai-grid"></div>
-            <div class="ai-particles"></div>
-        </div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">The AI Engine</span>
-                <h2 class="section-title">What each agent actually does.<br><span class="gradient-text">From mundane to complex.</span></h2>
+        <!-- AI Operations Section -->
+        <section class="section" id="ai">
+            <div class="section-header-bar">
+                <div class="section-breadcrumb">Business Plan / AI Operations</div>
             </div>
 
-            <div class="agents-detailed">
-                <!-- ANALYST -->
-                <div class="agent-detail" data-aos="fade-up">
-                    <div class="agent-header">
-                        <div class="agent-icon-large">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M9 17H5a2 2 0 00-2 2 2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2z"/>
-                                <path d="M19 17h-4a2 2 0 00-2 2 2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2z"/>
-                                <path d="M12 12V8"/>
-                                <path d="M5 8h14"/>
-                                <path d="M5 8a2 2 0 012-2h10a2 2 0 012 2"/>
-                            </svg>
-                        </div>
-                        <div class="agent-title">
-                            <h3>ANALYST</h3>
-                            <p>Deal Evaluation Engine</p>
-                        </div>
-                        <div class="agent-hours-badge">15-20 hrs/week</div>
-                    </div>
-                    <div class="agent-body">
-                        <div class="deliverables-grid">
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>Document Extraction</h4>
-                                <p>Parses IMs, rent rolls, leases, valuations → extracts key data points (rent/sqm, cap rate, lease terms, tenant info) → structures into database</p>
-                            </div>
-                            <div class="deliverable medium">
-                                <span class="complexity">Medium</span>
-                                <h4>Comparable Assembly</h4>
-                                <p>Queries RCA database for relevant transactions → filters by geography, asset type, size, timing → assembles comp tables with $/sqm, cap rates, buyer profiles</p>
-                            </div>
-                            <div class="deliverable medium">
-                                <span class="complexity">Medium</span>
-                                <h4>Risk Scoring</h4>
-                                <p>Systematic assessment across 5 dimensions (planning, tenant, market, execution, regulatory) → scores 1-5 per dimension → generates risk heatmap</p>
-                            </div>
-                            <div class="deliverable complex">
-                                <span class="complexity">Complex</span>
-                                <h4>Financial Modeling</h4>
-                                <p>Auto-populates underwriting template → runs IRR/EM calculations → generates sensitivity tables (rent, cap rate, cost, timing) → produces upside/base/downside scenarios</p>
-                            </div>
-                            <div class="deliverable complex">
-                                <span class="complexity">Complex</span>
-                                <h4>Deal Dashboard</h4>
-                                <p>Synthesizes all analysis into client-ready 48-hour dashboard: executive summary, financial analysis, risk assessment, comps, key considerations, DD priorities</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="page-header">
+                <h1>AI Operations</h1>
+                <p class="page-subtitle">What each agent does, from mundane to complex</p>
+            </div>
 
-                <!-- PROSPECTOR -->
-                <div class="agent-detail" data-aos="fade-up">
-                    <div class="agent-header">
-                        <div class="agent-icon-large">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="11" cy="11" r="8"/>
-                                <path d="M21 21l-4.35-4.35"/>
-                                <path d="M11 8v6"/>
-                                <path d="M8 11h6"/>
-                            </svg>
-                        </div>
-                        <div class="agent-title">
-                            <h3>PROSPECTOR</h3>
-                            <p>Investor Intelligence & Outreach</p>
-                        </div>
-                        <div class="agent-hours-badge">8-12 hrs/week</div>
-                    </div>
-                    <div class="agent-body">
-                        <div class="deliverables-grid">
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>Contact Scraping</h4>
-                                <p>Pulls data from LinkedIn Sales Navigator, conference attendee lists, press releases → extracts names, titles, companies, contact paths</p>
-                            </div>
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>Profile Enrichment</h4>
-                                <p>Augments contacts with AUM, mandate info, recent deals, career history, LinkedIn activity → keeps profiles current as people move</p>
-                            </div>
-                            <div class="deliverable medium">
-                                <span class="complexity">Medium</span>
-                                <h4>Warm Path Mapping</h4>
-                                <p>Cross-references every prospect against our network → identifies mutual connections → ranks intro paths by strength → suggests specific intro requests</p>
-                            </div>
-                            <div class="deliverable medium">
-                                <span class="complexity">Medium</span>
-                                <h4>Fit Scoring</h4>
-                                <p>Scores prospects on mandate fit, accessibility, timing, relationship potential, check size → generates weekly "ready to approach" list</p>
-                            </div>
-                            <div class="deliverable complex">
-                                <span class="complexity">Complex</span>
-                                <h4>Outreach Drafting</h4>
-                                <p>Generates personalized email drafts using prospect context (recent activity, mutual connections, specific interests) → manages Day 3/7/14/30 sequences → tracks responses → A/B tests messaging</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="agents-overview">
+                <div class="analysis-header">
+                    <h3>Agent Roster</h3>
                 </div>
+                <table class="data-table agents-table">
+                    <thead>
+                        <tr>
+                            <th>Agent</th>
+                            <th>Role</th>
+                            <th>Hours/Week</th>
+                            <th>Key Deliverables</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="agent-badge">ANALYST</span></td>
+                            <td>Deal Evaluation</td>
+                            <td>15-20</td>
+                            <td>48-hour dashboards, IC memos, risk scoring, financial models</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">PROSPECTOR</span></td>
+                            <td>Client Intelligence</td>
+                            <td>8-12</td>
+                            <td>Prospect profiles, warm paths, fit scoring, outreach drafts</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">SCOUT</span></td>
+                            <td>Market Intelligence</td>
+                            <td>5-8</td>
+                            <td>News monitoring, transaction alerts, weekly briefs</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">OPERATIONS</span></td>
+                            <td>Admin Automation</td>
+                            <td>5-10</td>
+                            <td>Email triage, calendar, invoicing, meeting prep</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">NARRATOR</span></td>
+                            <td>Content Engine</td>
+                            <td>5-10</td>
+                            <td>LinkedIn posts, market briefs, quarterly reports</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <!-- SCOUT -->
-                <div class="agent-detail" data-aos="fade-up">
-                    <div class="agent-header">
-                        <div class="agent-icon-large">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <div class="agent-title">
-                            <h3>SCOUT</h3>
-                            <p>Market Intelligence</p>
-                        </div>
-                        <div class="agent-hours-badge">5-8 hrs/week</div>
-                    </div>
-                    <div class="agent-body">
-                        <div class="deliverables-grid">
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>News Monitoring</h4>
-                                <p>Monitors 50+ RSS feeds (CBRE, JLL, Bloomberg, Nikkei, SCMP, etc.) → filters for APAC RE relevance → categorizes by market/sector</p>
-                            </div>
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>Transaction Alerts</h4>
-                                <p>Tracks RCA for new transactions → alerts on deals >$50M → extracts buyer, price, cap rate, terms</p>
-                            </div>
-                            <div class="deliverable medium">
-                                <span class="complexity">Medium</span>
-                                <h4>Policy Tracking</h4>
-                                <p>Monitors regulatory sources (URA, FIRB, MAS, FSA) → flags policy changes affecting clients → summarizes implications</p>
-                            </div>
-                            <div class="deliverable complex">
-                                <span class="complexity">Complex</span>
-                                <h4>Weekly Market Brief</h4>
-                                <p>Synthesizes week's news into 500-800 word client-ready brief → key transactions, policy updates, market takes → professional formatting</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="agent-detail-section">
+                <div class="analysis-header">
+                    <h3>ANALYST: Detailed Deliverables</h3>
                 </div>
-
-                <!-- OPERATIONS -->
-                <div class="agent-detail" data-aos="fade-up">
-                    <div class="agent-header">
-                        <div class="agent-icon-large">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="16" y1="2" x2="16" y2="6"/>
-                                <line x1="8" y1="2" x2="8" y2="6"/>
-                                <line x1="3" y1="10" x2="21" y2="10"/>
-                            </svg>
+                <div class="deliverables-by-complexity">
+                    <div class="complexity-column">
+                        <div class="complexity-header mundane">Mundane Tasks</div>
+                        <div class="task-item">
+                            <strong>Document Extraction</strong>
+                            <p>Parses IMs, rent rolls, leases → extracts key data → structures into database</p>
                         </div>
-                        <div class="agent-title">
-                            <h3>OPERATIONS</h3>
-                            <p>Administrative Automation</p>
-                        </div>
-                        <div class="agent-hours-badge">5-10 hrs/week</div>
-                    </div>
-                    <div class="agent-body">
-                        <div class="deliverables-grid">
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>Email Triage</h4>
-                                <p>Sorts inbox by priority → flags urgent items → drafts routine responses → filters spam/irrelevant</p>
-                            </div>
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>Calendar Management</h4>
-                                <p>Handles scheduling requests → coordinates time zones → sends meeting prep briefs → manages reschedules</p>
-                            </div>
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>Invoice Generation</h4>
-                                <p>Generates monthly retainer invoices → tracks payments → sends reminders → logs in accounting</p>
-                            </div>
-                            <div class="deliverable medium">
-                                <span class="complexity">Medium</span>
-                                <h4>Meeting Prep</h4>
-                                <p>Before each client call: pulls recent deal activity, market news, portfolio updates → generates 1-page brief</p>
-                            </div>
+                        <div class="task-item">
+                            <strong>Data Entry</strong>
+                            <p>Populates standard fields in underwriting templates from source docs</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- NARRATOR -->
-                <div class="agent-detail" data-aos="fade-up">
-                    <div class="agent-header">
-                        <div class="agent-icon-large">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 20h9"/>
-                                <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                            </svg>
+                    <div class="complexity-column">
+                        <div class="complexity-header medium">Medium Complexity</div>
+                        <div class="task-item">
+                            <strong>Comparable Assembly</strong>
+                            <p>Queries RCA for relevant transactions, filters, assembles comp tables</p>
                         </div>
-                        <div class="agent-title">
-                            <h3>NARRATOR</h3>
-                            <p>Content & Thought Leadership</p>
+                        <div class="task-item">
+                            <strong>Risk Scoring</strong>
+                            <p>Systematic 5-dimension assessment (planning, tenant, market, execution, regulatory)</p>
                         </div>
-                        <div class="agent-hours-badge">5-10 hrs/week</div>
                     </div>
-                    <div class="agent-body">
-                        <div class="deliverables-grid">
-                            <div class="deliverable mundane">
-                                <span class="complexity">Mundane</span>
-                                <h4>LinkedIn Posts</h4>
-                                <p>Drafts 2-3 posts per week on market observations, deal insights, thought leadership → we review before posting</p>
-                            </div>
-                            <div class="deliverable medium">
-                                <span class="complexity">Medium</span>
-                                <h4>Weekly Brief</h4>
-                                <p>Takes SCOUT output → formats into client-ready email → adds commentary and insight → ready for distribution</p>
-                            </div>
-                            <div class="deliverable complex">
-                                <span class="complexity">Complex</span>
-                                <h4>Quarterly Deep Dives</h4>
-                                <p>2,000-3,000 word market/sector analysis → data-driven, original insights → PDF formatted → thought leadership quality</p>
-                            </div>
+                    <div class="complexity-column">
+                        <div class="complexity-header complex">Complex Tasks</div>
+                        <div class="task-item">
+                            <strong>Financial Modeling</strong>
+                            <p>Auto-populates model → runs IRR/EM → sensitivity tables → scenario analysis</p>
+                        </div>
+                        <div class="task-item">
+                            <strong>Deal Dashboard</strong>
+                            <p>Synthesizes all into client-ready 48-hour output: summary, analysis, risks, recommendations</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="ai-total" data-aos="fade-up">
-                <div class="total-card glass">
-                    <div class="total-number">38-63</div>
-                    <div class="total-label">Hours saved per week</div>
-                    <div class="total-equiv">= Capacity of a 4-5 person team</div>
+            <div class="total-leverage">
+                <div class="leverage-card">
+                    <div class="leverage-number">38-63</div>
+                    <div class="leverage-label">Hours saved per week</div>
+                    <div class="leverage-equiv">= Capacity of 4-5 person team</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Economics Section -->
-    <section class="section section-dark" id="economics">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Economics</span>
-                <h2 class="section-title">Clear path to value.<br><span class="gradient-text">Breakeven at 3 clients.</span></h2>
+        <!-- Economics Section -->
+        <section class="section" id="economics">
+            <div class="section-header-bar">
+                <div class="section-breadcrumb">Business Plan / Economics</div>
             </div>
 
-            <div class="economics-visual">
-                <div class="econ-scenario base" data-aos="fade-up">
-                    <div class="scenario-header">
-                        <span class="scenario-tag">Base Case</span>
-                        <span class="scenario-year">Year 1</span>
-                    </div>
-                    <div class="scenario-numbers">
-                        <div class="scenario-row">
-                            <span class="row-label">Retainers (4 clients @ $12.5K)</span>
-                            <span class="row-value">$600K</span>
-                        </div>
-                        <div class="scenario-row">
-                            <span class="row-label">Origination fees (4 deals × $50M × 1%)</span>
-                            <span class="row-value">$2.0M</span>
-                        </div>
-                        <div class="scenario-row total">
-                            <span class="row-label">Total Revenue</span>
-                            <span class="row-value">$2.6M</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="page-header">
+                <h1>Economics</h1>
+                <p class="page-subtitle">Revenue projections and cost structure</p>
+            </div>
 
-                <div class="econ-costs" data-aos="fade-up" data-aos-delay="100">
-                    <h4>Cost Structure</h4>
-                    <div class="costs-grid">
-                        <div class="cost-item">
-                            <span class="cost-label">Data stack (RCA, ANREV, APREA, etc.)</span>
-                            <span class="cost-value">$45-75K</span>
+            <div class="scenario-model">
+                <div class="analysis-header">
+                    <h3>Year 1 Base Case</h3>
+                </div>
+                <div class="scenario-grid">
+                    <div class="scenario-inputs">
+                        <h4>Assumptions</h4>
+                        <div class="input-row">
+                            <span>Retainer clients</span>
+                            <span class="input-value">4</span>
                         </div>
-                        <div class="cost-item">
-                            <span class="cost-label">AI/tech infrastructure</span>
-                            <span class="cost-value">$15K</span>
+                        <div class="input-row">
+                            <span>Avg retainer</span>
+                            <span class="input-value">$12.5K/mo</span>
                         </div>
-                        <div class="cost-item">
-                            <span class="cost-label">Travel & client meetings</span>
-                            <span class="cost-value">$40-60K</span>
+                        <div class="input-row">
+                            <span>Deals closed</span>
+                            <span class="input-value">4</span>
                         </div>
-                        <div class="cost-item">
-                            <span class="cost-label">Insurance, legal, entity</span>
-                            <span class="cost-value">$20K</span>
+                        <div class="input-row">
+                            <span>Avg deal size</span>
+                            <span class="input-value">$50M</span>
                         </div>
-                        <div class="cost-item">
-                            <span class="cost-label">Marketing & events</span>
-                            <span class="cost-value">$20K</span>
+                        <div class="input-row">
+                            <span>Origination fee</span>
+                            <span class="input-value">1%</span>
                         </div>
-                        <div class="cost-item total">
-                            <span class="cost-label">Total (before founder draw)</span>
-                            <span class="cost-value">$150-200K</span>
+                    </div>
+                    <div class="scenario-outputs">
+                        <h4>Revenue</h4>
+                        <div class="output-row">
+                            <span>Retainer revenue</span>
+                            <span class="output-value">$600K</span>
+                        </div>
+                        <div class="output-row">
+                            <span>Origination fees</span>
+                            <span class="output-value">$2.0M</span>
+                        </div>
+                        <div class="output-row total">
+                            <span>Total Revenue</span>
+                            <span class="output-value">$2.6M</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="econ-metrics" data-aos="fade-up" data-aos-delay="200">
-                    <div class="metric-card">
-                        <div class="metric-value">2-3</div>
-                        <div class="metric-label">Clients to<br>breakeven</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">$50M</div>
-                        <div class="metric-label">Target avg<br>deal size</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">1%</div>
-                        <div class="metric-label">Origination<br>fee</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">18-20</div>
-                        <div class="metric-label">Months<br>runway</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Summary Section -->
-    <section class="section" id="summary">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Summary</span>
-                <h2 class="section-title">The AC Ventures thesis.</h2>
             </div>
 
-            <div class="summary-grid" data-aos="fade-up">
-                <div class="summary-item">
-                    <div class="summary-number">01</div>
-                    <h3>The Gap</h3>
-                    <p>Family offices want APAC real estate but can't access it effectively. Big shops are transactional, in-house teams are too expensive.</p>
+            <div class="cost-structure">
+                <div class="analysis-header">
+                    <h3>Cost Structure</h3>
                 </div>
-                <div class="summary-item">
-                    <div class="summary-number">02</div>
-                    <h3>Our Solution</h3>
-                    <p>Embedded external investment arm. Retainer for dedication, 1% origination for alignment, non-competing mandates for trust.</p>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-number">03</div>
-                    <h3>The AI Advantage</h3>
-                    <p>Two principals operating at 10x capacity. 48-hour deal analysis, 200+ outreach per week, systematic market coverage.</p>
-                </div>
-                <div class="summary-item">
-                    <div class="summary-number">04</div>
-                    <h3>The Opportunity</h3>
-                    <p>Japan, Australia, Singapore, Hong Kong. Value-add office and industrial. $50M average ticket, 1% origination.</p>
-                </div>
+                <table class="data-table costs-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Annual Cost</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data stack (RCA, ANREV, APREA, LinkedIn)</td>
+                            <td>$45-75K</td>
+                            <td>Essential: $45K, Full: $75K</td>
+                        </tr>
+                        <tr>
+                            <td>AI/tech infrastructure</td>
+                            <td>$15K</td>
+                            <td>APIs, hosting, tools</td>
+                        </tr>
+                        <tr>
+                            <td>Travel & client meetings</td>
+                            <td>$40-60K</td>
+                            <td>4-6 markets, DD trips</td>
+                        </tr>
+                        <tr>
+                            <td>Insurance, legal, entity</td>
+                            <td>$20K</td>
+                            <td>PI coverage, Singapore entity</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing & events</td>
+                            <td>$20K</td>
+                            <td>FO dinners, content, conferences</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td><strong>Total (before founder draw)</strong></td>
+                            <td><strong>$150-200K</strong></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="closing-quote" data-aos="fade-up">
-                <blockquote>
-                    "We built the tools we wished existed. Now we're leveraging them to serve clients at a scale that wouldn't otherwise be possible."
-                </blockquote>
-                <cite>— Adam & Becca Courtenay</cite>
+            <div class="key-metrics-grid">
+                <div class="key-metric">
+                    <div class="km-value">2-3</div>
+                    <div class="km-label">Clients to breakeven</div>
+                </div>
+                <div class="key-metric">
+                    <div class="km-value">18-20</div>
+                    <div class="km-label">Months runway</div>
+                </div>
+                <div class="key-metric">
+                    <div class="km-value">$50M</div>
+                    <div class="km-label">Target deal size</div>
+                </div>
+                <div class="key-metric">
+                    <div class="km-value">5</div>
+                    <div class="km-label">Year 1 client target</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">AC Ventures</div>
-                <div class="footer-text">APAC Real Estate Advisory</div>
-                <div class="footer-location">Singapore • Tokyo • Sydney • Hong Kong</div>
-            </div>
-        </div>
-    </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
