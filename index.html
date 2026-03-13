@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
         body { background: #0B1120 !important; color: #F8FAFC !important; min-height: 100vh; }
     </style>
@@ -710,6 +712,13 @@
                 <button class="filter-btn" data-filter="Hong Kong">🇭🇰 Hong Kong</button>
             </div>
 
+            <div class="pipeline-map-wrapper">
+                <div class="analysis-header">
+                    <h3>Deal Locations</h3>
+                </div>
+                <div id="pipeline-map"></div>
+            </div>
+
             <div class="pipeline-table-wrapper">
                 <table class="data-table pipeline-table">
                     <thead>
@@ -722,11 +731,12 @@
                             <th>Yield</th>
                             <th>Status</th>
                             <th>Broker</th>
+                            <th>Link</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Japan -->
-                        <tr data-country="Japan">
+                        <tr data-country="Japan" data-lat="35.4667" data-lng="139.4583">
                             <td>
                                 <div class="property-name">Molex Japan - Yamato HQ</div>
                                 <div class="property-address">1-5-4 Fukami-higashi, Yamato, Kanagawa</div>
@@ -738,8 +748,9 @@
                             <td>4.2%</td>
                             <td><span class="status-pill uc">Under Contract</span></td>
                             <td>JLL</td>
+                            <td><a href="https://invest.jll.com/jp/en/listings/industrial-logistics/molex-japan-yamato-hq-seller" target="_blank" class="listing-link">View →</a></td>
                         </tr>
-                        <tr data-country="Japan">
+                        <tr data-country="Japan" data-lat="34.7833" data-lng="135.5500">
                             <td>
                                 <div class="property-name">Opella Osaka DC</div>
                                 <div class="property-address">5-chome Torikaihonmachi, Settsu, Osaka</div>
@@ -751,8 +762,9 @@
                             <td>4.0%</td>
                             <td><span class="status-pill uc">Under Contract</span></td>
                             <td>JLL</td>
+                            <td><a href="https://invest.jll.com/jp/en/listings/industrial-logistics/opella-osaka-dc" target="_blank" class="listing-link">View →</a></td>
                         </tr>
-                        <tr data-country="Japan">
+                        <tr data-country="Japan" data-lat="35.6617" data-lng="139.7036">
                             <td>
                                 <div class="property-name">Shibuya Office Tower</div>
                                 <div class="property-address">Shibuya Ward, Tokyo</div>
@@ -764,8 +776,9 @@
                             <td>3.5%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>CBRE</td>
+                            <td><a href="https://www.cbre.co.jp/en/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Japan">
+                        <tr data-country="Japan" data-lat="35.8333" data-lng="139.8667">
                             <td>
                                 <div class="property-name">Misato Logistics Land</div>
                                 <div class="property-address">2-chome Hikoito, Misato, Saitama</div>
@@ -777,9 +790,10 @@
                             <td>—</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>JLL</td>
+                            <td><a href="https://invest.jll.com/jp/en/listings/land/misato-land" target="_blank" class="listing-link">View →</a></td>
                         </tr>
                         <!-- Australia -->
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-37.8456" data-lng="144.9812">
                             <td>
                                 <div class="property-name">468 St Kilda Road</div>
                                 <div class="property-address">468 St Kilda Road, Melbourne VIC</div>
@@ -791,8 +805,9 @@
                             <td>5.8%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Knight Frank</td>
+                            <td><a href="https://www.knightfrank.com.au/properties/commercial/for-sale/victoria" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-38.1433" data-lng="145.1261">
                             <td>
                                 <div class="property-name">Peninsula Place</div>
                                 <div class="property-address">454-472 Nepean Hwy, Frankston VIC</div>
@@ -804,8 +819,9 @@
                             <td>6.5%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Knight Frank</td>
+                            <td><a href="https://www.knightfrank.com.au/properties/commercial/for-sale/victoria" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-27.4920" data-lng="153.0347">
                             <td>
                                 <div class="property-name">66 Annerley Road</div>
                                 <div class="property-address">Woolloongabba, Brisbane QLD</div>
@@ -817,8 +833,9 @@
                             <td>6.2%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>JLL</td>
+                            <td><a href="https://invest.jll.com/au/en/listings/office/66-annerley-road" target="_blank" class="listing-link">View →</a></td>
                         </tr>
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-33.8050" data-lng="150.8667">
                             <td>
                                 <div class="property-name">Eastern Creek Logistics</div>
                                 <div class="property-address">Western Sydney, NSW</div>
@@ -830,8 +847,9 @@
                             <td>5.2%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>CBRE</td>
+                            <td><a href="https://www.cbre.com.au/properties/industrial" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-27.6167" data-lng="152.8000">
                             <td>
                                 <div class="property-name">Winston Glades Shopping Centre</div>
                                 <div class="property-address">259 Ash Street, Flinders View QLD</div>
@@ -843,9 +861,10 @@
                             <td>6.8%</td>
                             <td><span class="status-pill cfo">Call for Offers</span></td>
                             <td>JLL</td>
+                            <td><a href="https://invest.jll.com/au/en/listings/retail/winston-glades" target="_blank" class="listing-link">View →</a></td>
                         </tr>
                         <!-- Singapore -->
-                        <tr data-country="Singapore">
+                        <tr data-country="Singapore" data-lat="1.3100" data-lng="103.7500">
                             <td>
                                 <div class="property-name">218 Pandan Loop</div>
                                 <div class="property-address">Pandan Loop, Singapore</div>
@@ -857,8 +876,9 @@
                             <td>5.0%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>CBRE</td>
+                            <td><a href="https://www.cbre.com.sg/properties/industrial" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Singapore">
+                        <tr data-country="Singapore" data-lat="1.3400" data-lng="103.7000">
                             <td>
                                 <div class="property-name">Jurong Industrial Hub</div>
                                 <div class="property-address">Jurong West, Singapore</div>
@@ -870,8 +890,9 @@
                             <td>4.8%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>JLL</td>
+                            <td><a href="https://www.jll.com.sg/en/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Singapore">
+                        <tr data-country="Singapore" data-lat="1.3342" data-lng="103.9650">
                             <td>
                                 <div class="property-name">Changi Business Park Office</div>
                                 <div class="property-address">Changi Business Park, Singapore</div>
@@ -883,9 +904,10 @@
                             <td>4.2%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Savills</td>
+                            <td><a href="https://www.savills.com.sg/find-a-property" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
                         <!-- Hong Kong -->
-                        <tr data-country="Hong Kong">
+                        <tr data-country="Hong Kong" data-lat="22.3230" data-lng="114.2130">
                             <td>
                                 <div class="property-name">Kowloon Bay Office Floor</div>
                                 <div class="property-address">Kowloon Bay, Hong Kong</div>
@@ -897,8 +919,9 @@
                             <td>4.5%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Savills</td>
+                            <td><a href="https://www.savills.com.hk/find-a-property" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Hong Kong">
+                        <tr data-country="Hong Kong" data-lat="22.2855" data-lng="114.1577">
                             <td>
                                 <div class="property-name">Central Core Office</div>
                                 <div class="property-address">Des Voeux Road Central, HK</div>
@@ -910,8 +933,9 @@
                             <td>3.8%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>CBRE</td>
+                            <td><a href="https://www.cbre.com.hk/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Hong Kong">
+                        <tr data-country="Hong Kong" data-lat="22.3100" data-lng="114.2233">
                             <td>
                                 <div class="property-name">Kwun Tong Industrial Conversion</div>
                                 <div class="property-address">Kwun Tong, Hong Kong</div>
@@ -923,9 +947,10 @@
                             <td>5.5%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Knight Frank</td>
+                            <td><a href="https://www.knightfrank.com.hk/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
                         <!-- Additional Japan -->
-                        <tr data-country="Japan">
+                        <tr data-country="Japan" data-lat="35.6284" data-lng="139.7387">
                             <td>
                                 <div class="property-name">Shinagawa Intercity</div>
                                 <div class="property-address">Konan, Minato-ku, Tokyo</div>
@@ -937,8 +962,9 @@
                             <td>3.2%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Cushman</td>
+                            <td><a href="https://www.cushmanwakefield.com/en/japan/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Japan">
+                        <tr data-country="Japan" data-lat="34.7050" data-lng="135.4983">
                             <td>
                                 <div class="property-name">Osaka Umeda Tower</div>
                                 <div class="property-address">Umeda, Kita-ku, Osaka</div>
@@ -950,8 +976,9 @@
                             <td>3.8%</td>
                             <td><span class="status-pill cfo">Call for Offers</span></td>
                             <td>JLL</td>
+                            <td><a href="https://invest.jll.com/jp/en/property-search" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Japan">
+                        <tr data-country="Japan" data-lat="35.1167" data-lng="136.8833">
                             <td>
                                 <div class="property-name">Nagoya Logistics Center</div>
                                 <div class="property-address">Minato-ku, Nagoya</div>
@@ -963,8 +990,9 @@
                             <td>4.5%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>CBRE</td>
+                            <td><a href="https://www.cbre.co.jp/en/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Japan">
+                        <tr data-country="Japan" data-lat="35.4667" data-lng="139.6200">
                             <td>
                                 <div class="property-name">Yokohama Bay Quarter</div>
                                 <div class="property-address">Nishi-ku, Yokohama</div>
@@ -976,9 +1004,10 @@
                             <td>4.0%</td>
                             <td><span class="status-pill uc">Under Contract</span></td>
                             <td>Savills</td>
+                            <td><a href="https://www.savills.co.jp/find-a-property" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
                         <!-- Additional Australia -->
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-33.9267" data-lng="151.1933">
                             <td>
                                 <div class="property-name">Mascot Central</div>
                                 <div class="property-address">Bourke Road, Mascot NSW</div>
@@ -990,8 +1019,9 @@
                             <td>5.5%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Colliers</td>
+                            <td><a href="https://www.colliers.com.au/en-au/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-37.8367" data-lng="144.9333">
                             <td>
                                 <div class="property-name">Port Melbourne Industrial</div>
                                 <div class="property-address">Salmon Street, Port Melbourne VIC</div>
@@ -1003,8 +1033,9 @@
                             <td>5.8%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>CBRE</td>
+                            <td><a href="https://www.cbre.com.au/properties/industrial" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-27.3833" data-lng="153.1167">
                             <td>
                                 <div class="property-name">Brisbane Airport Logistics</div>
                                 <div class="property-address">Airport Drive, Brisbane QLD</div>
@@ -1016,8 +1047,9 @@
                             <td>5.0%</td>
                             <td><span class="status-pill cfo">Call for Offers</span></td>
                             <td>JLL</td>
+                            <td><a href="https://invest.jll.com/au/en/property-search" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-31.9505" data-lng="115.8605">
                             <td>
                                 <div class="property-name">Perth CBD Office</div>
                                 <div class="property-address">St Georges Terrace, Perth WA</div>
@@ -1029,8 +1061,9 @@
                             <td>6.8%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Knight Frank</td>
+                            <td><a href="https://www.knightfrank.com.au/properties/commercial" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Australia">
+                        <tr data-country="Australia" data-lat="-34.8667" data-lng="138.5833">
                             <td>
                                 <div class="property-name">Adelaide Cold Storage</div>
                                 <div class="property-address">Regency Park, Adelaide SA</div>
@@ -1042,9 +1075,10 @@
                             <td>6.2%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>Savills</td>
+                            <td><a href="https://www.savills.com.au/find-a-property" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
                         <!-- Additional Singapore -->
-                        <tr data-country="Singapore">
+                        <tr data-country="Singapore" data-lat="1.2900" data-lng="103.8050">
                             <td>
                                 <div class="property-name">Alexandra Technopark</div>
                                 <div class="property-address">Alexandra Road, Singapore</div>
@@ -1056,8 +1090,9 @@
                             <td>4.5%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>JLL</td>
+                            <td><a href="https://www.jll.com.sg/en/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Singapore">
+                        <tr data-country="Singapore" data-lat="1.2700" data-lng="103.6333">
                             <td>
                                 <div class="property-name">Tuas Mega Logistics</div>
                                 <div class="property-address">Tuas South Avenue, Singapore</div>
@@ -1069,8 +1104,9 @@
                             <td>5.2%</td>
                             <td><span class="status-pill cfo">Call for Offers</span></td>
                             <td>CBRE</td>
+                            <td><a href="https://www.cbre.com.sg/properties/industrial" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Singapore">
+                        <tr data-country="Singapore" data-lat="1.2994" data-lng="103.7875">
                             <td>
                                 <div class="property-name">Mapletree One North</div>
                                 <div class="property-address">One-North Gateway, Singapore</div>
@@ -1082,9 +1118,10 @@
                             <td>4.0%</td>
                             <td><span class="status-pill uc">Under Contract</span></td>
                             <td>Knight Frank</td>
+                            <td><a href="https://www.knightfrank.com.sg/find-a-property" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
                         <!-- Additional Hong Kong -->
-                        <tr data-country="Hong Kong">
+                        <tr data-country="Hong Kong" data-lat="22.2988" data-lng="114.1722">
                             <td>
                                 <div class="property-name">Tsim Sha Tsui Office Tower</div>
                                 <div class="property-address">Canton Road, TST, Kowloon</div>
@@ -1096,8 +1133,9 @@
                             <td>4.2%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>JLL</td>
+                            <td><a href="https://www.jll.com.hk/en/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Hong Kong">
+                        <tr data-country="Hong Kong" data-lat="22.3358" data-lng="114.1483">
                             <td>
                                 <div class="property-name">Cheung Sha Wan Industrial</div>
                                 <div class="property-address">Cheung Sha Wan, Kowloon</div>
@@ -1109,8 +1147,9 @@
                             <td>5.0%</td>
                             <td><span class="status-pill available">Available</span></td>
                             <td>CBRE</td>
+                            <td><a href="https://www.cbre.com.hk/properties" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
-                        <tr data-country="Hong Kong">
+                        <tr data-country="Hong Kong" data-lat="22.2780" data-lng="114.1750">
                             <td>
                                 <div class="property-name">Wan Chai Grade A Office</div>
                                 <div class="property-address">Gloucester Road, Wan Chai</div>
@@ -1122,6 +1161,7 @@
                             <td>3.9%</td>
                             <td><span class="status-pill cfo">Call for Offers</span></td>
                             <td>Savills</td>
+                            <td><a href="https://www.savills.com.hk/find-a-property" target="_blank" class="listing-link">Inquire →</a></td>
                         </tr>
                     </tbody>
                 </table>

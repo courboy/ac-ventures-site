@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initNameSelection();
     initPipelineFilters();
+    initPipelineMap();
 });
 
 // ========================================
@@ -173,6 +174,109 @@ function initNameSelection() {
 }
 
 // ========================================
+// PIPELINE MAP
+// ========================================
+
+let pipelineMap = null;
+let mapMarkers = [];
+
+function initPipelineMap() {
+    const mapContainer = document.getElementById('pipeline-map');
+    if (!mapContainer || typeof L === 'undefined') return;
+    
+    // Initialize map centered on APAC
+    pipelineMap = L.map('pipeline-map', {
+        scrollWheelZoom: false
+    }).setView([20, 120], 3);
+    
+    // Add dark tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(pipelineMap);
+    
+    // Color mapping for countries
+    const countryColors = {
+        'Japan': '#3B82F6',      // Blue
+        'Australia': '#10B981',   // Green
+        'Singapore': '#F59E0B',   // Orange
+        'Hong Kong': '#EF4444'    // Red
+    };
+    
+    // Get all property rows
+    const rows = document.querySelectorAll('.pipeline-table tbody tr');
+    
+    rows.forEach(row => {
+        const lat = parseFloat(row.dataset.lat);
+        const lng = parseFloat(row.dataset.lng);
+        const country = row.dataset.country;
+        
+        if (isNaN(lat) || isNaN(lng)) return;
+        
+        const name = row.querySelector('.property-name')?.textContent || 'Property';
+        const address = row.querySelector('.property-address')?.textContent || '';
+        const type = row.querySelector('.type-badge')?.textContent || '';
+        const price = row.cells[4]?.textContent || '';
+        const yieldPct = row.cells[5]?.textContent || '';
+        const link = row.querySelector('.listing-link')?.href || '#';
+        
+        // Create custom marker
+        const markerColor = countryColors[country] || '#3B82F6';
+        const markerHtml = `<div style="
+            background: ${markerColor};
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        "></div>`;
+        
+        const icon = L.divIcon({
+            html: markerHtml,
+            className: 'custom-marker',
+            iconSize: [16, 16],
+            iconAnchor: [8, 8]
+        });
+        
+        const marker = L.marker([lat, lng], { icon }).addTo(pipelineMap);
+        
+        // Create popup content
+        const popupContent = `
+            <div class="map-popup">
+                <h4>${name}</h4>
+                <p>${address}</p>
+                <p><strong>${type}</strong> • <span class="popup-price">${price}</span> • ${yieldPct}</p>
+                <a href="${link}" target="_blank" style="color: #3B82F6; font-size: 12px;">View Listing →</a>
+            </div>
+        `;
+        
+        marker.bindPopup(popupContent);
+        marker.country = country;
+        mapMarkers.push(marker);
+    });
+}
+
+function filterMapMarkers(country) {
+    if (!pipelineMap) return;
+    
+    mapMarkers.forEach(marker => {
+        if (country === 'all' || marker.country === country) {
+            marker.addTo(pipelineMap);
+        } else {
+            pipelineMap.removeLayer(marker);
+        }
+    });
+    
+    // Fit bounds to visible markers
+    const visibleMarkers = mapMarkers.filter(m => country === 'all' || m.country === country);
+    if (visibleMarkers.length > 0) {
+        const group = L.featureGroup(visibleMarkers);
+        pipelineMap.fitBounds(group.getBounds().pad(0.1));
+    }
+}
+
+// ========================================
 // PIPELINE FILTERS
 // ========================================
 
@@ -200,6 +304,9 @@ function initPipelineFilters() {
             
             // Update summary stats based on visible rows
             updatePipelineStats(filter);
+            
+            // Filter map markers
+            filterMapMarkers(filter);
         });
     });
 }
