@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollAnimations();
     initNameSelection();
+    initPipelineFilters();
 });
 
 // ========================================
@@ -169,6 +170,80 @@ function initNameSelection() {
             }
         });
     });
+}
+
+// ========================================
+// PIPELINE FILTERS
+// ========================================
+
+function initPipelineFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const rows = document.querySelectorAll('.pipeline-table tbody tr');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            
+            // Update active state
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Filter rows
+            rows.forEach(row => {
+                if (filter === 'all' || row.dataset.country === filter) {
+                    row.style.display = '';
+                    row.style.opacity = '1';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Update summary stats based on visible rows
+            updatePipelineStats(filter);
+        });
+    });
+}
+
+function updatePipelineStats(filter) {
+    const rows = document.querySelectorAll('.pipeline-table tbody tr');
+    let count = 0;
+    let totalValue = 0;
+    let yieldSum = 0;
+    let yieldCount = 0;
+    
+    rows.forEach(row => {
+        if (filter === 'all' || row.dataset.country === filter) {
+            count++;
+            // Parse price from text (e.g., "$42M" -> 42000000)
+            const priceCell = row.cells[4];
+            if (priceCell) {
+                const priceText = priceCell.textContent;
+                const match = priceText.match(/\$([\d.]+)M/);
+                if (match) {
+                    totalValue += parseFloat(match[1]) * 1000000;
+                }
+            }
+            // Parse yield
+            const yieldCell = row.cells[5];
+            if (yieldCell && yieldCell.textContent !== '—') {
+                const yieldMatch = yieldCell.textContent.match(/([\d.]+)%/);
+                if (yieldMatch) {
+                    yieldSum += parseFloat(yieldMatch[1]);
+                    yieldCount++;
+                }
+            }
+        }
+    });
+    
+    // Update KPIs
+    const kpis = document.querySelectorAll('.pipeline-kpi');
+    if (kpis[0]) kpis[0].querySelector('.pkpi-value').textContent = count;
+    if (kpis[1]) kpis[1].querySelector('.pkpi-value').textContent = '$' + Math.round(totalValue / 1000000) + 'M';
+    if (kpis[2] && yieldCount > 0) kpis[2].querySelector('.pkpi-value').textContent = (yieldSum / yieldCount).toFixed(1) + '%';
+    if (kpis[3]) {
+        const markets = filter === 'all' ? 4 : 1;
+        kpis[3].querySelector('.pkpi-value').textContent = markets;
+    }
 }
 
 // ========================================

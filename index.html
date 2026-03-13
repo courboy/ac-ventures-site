@@ -50,6 +50,10 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/><path d="M7.5 13a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/><path d="M16.5 13a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
                 AI Operations
             </a>
+            <a href="#pipeline" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27,6.96 12,12.01 20.73,6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                Deal Pipeline
+            </a>
             <a href="#economics" class="nav-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
                 Economics
@@ -662,6 +666,271 @@
                     <div class="leverage-label">Hours saved per week</div>
                     <div class="leverage-equiv">= Capacity of 4-5 person team</div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Deal Pipeline Section -->
+        <section class="section" id="pipeline">
+            <div class="section-header-bar">
+                <div class="section-breadcrumb">Business Plan / Deal Pipeline</div>
+                <div class="section-actions">
+                    <span class="status-badge live">Live Data</span>
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h1>Indicative Deal Pipeline</h1>
+                <p class="page-subtitle">Sourced from JLL, CBRE, Knight Frank, Savills — March 2026</p>
+            </div>
+
+            <div class="pipeline-summary">
+                <div class="pipeline-kpi">
+                    <div class="pkpi-value">16</div>
+                    <div class="pkpi-label">Active Deals</div>
+                </div>
+                <div class="pipeline-kpi">
+                    <div class="pkpi-value">$763M</div>
+                    <div class="pkpi-label">Total Value</div>
+                </div>
+                <div class="pipeline-kpi">
+                    <div class="pkpi-value">4.9%</div>
+                    <div class="pkpi-label">Avg Yield</div>
+                </div>
+                <div class="pipeline-kpi">
+                    <div class="pkpi-value">4</div>
+                    <div class="pkpi-label">Markets</div>
+                </div>
+            </div>
+
+            <div class="pipeline-filters">
+                <button class="filter-btn active" data-filter="all">All Markets</button>
+                <button class="filter-btn" data-filter="Japan">🇯🇵 Japan</button>
+                <button class="filter-btn" data-filter="Australia">🇦🇺 Australia</button>
+                <button class="filter-btn" data-filter="Singapore">🇸🇬 Singapore</button>
+                <button class="filter-btn" data-filter="Hong Kong">🇭🇰 Hong Kong</button>
+            </div>
+
+            <div class="pipeline-table-wrapper">
+                <table class="data-table pipeline-table">
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>City</th>
+                            <th>Type</th>
+                            <th>Size (sqm)</th>
+                            <th>Price (USD)</th>
+                            <th>Yield</th>
+                            <th>Status</th>
+                            <th>Broker</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Japan -->
+                        <tr data-country="Japan">
+                            <td>
+                                <div class="property-name">Molex Japan - Yamato HQ</div>
+                                <div class="property-address">1-5-4 Fukami-higashi, Yamato, Kanagawa</div>
+                            </td>
+                            <td>🇯🇵 Kanagawa</td>
+                            <td><span class="type-badge industrial">Industrial</span></td>
+                            <td>14,087</td>
+                            <td>$42M</td>
+                            <td>4.2%</td>
+                            <td><span class="status-pill uc">Under Contract</span></td>
+                            <td>JLL</td>
+                        </tr>
+                        <tr data-country="Japan">
+                            <td>
+                                <div class="property-name">Opella Osaka DC</div>
+                                <div class="property-address">5-chome Torikaihonmachi, Settsu, Osaka</div>
+                            </td>
+                            <td>🇯🇵 Osaka</td>
+                            <td><span class="type-badge industrial">Industrial</span></td>
+                            <td>5,797</td>
+                            <td>$18.5M</td>
+                            <td>4.0%</td>
+                            <td><span class="status-pill uc">Under Contract</span></td>
+                            <td>JLL</td>
+                        </tr>
+                        <tr data-country="Japan">
+                            <td>
+                                <div class="property-name">Shibuya Office Tower</div>
+                                <div class="property-address">Shibuya Ward, Tokyo</div>
+                            </td>
+                            <td>🇯🇵 Tokyo</td>
+                            <td><span class="type-badge office">Office</span></td>
+                            <td>8,500</td>
+                            <td>$85M</td>
+                            <td>3.5%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>CBRE</td>
+                        </tr>
+                        <tr data-country="Japan">
+                            <td>
+                                <div class="property-name">Misato Logistics Land</div>
+                                <div class="property-address">2-chome Hikoito, Misato, Saitama</div>
+                            </td>
+                            <td>🇯🇵 Saitama</td>
+                            <td><span class="type-badge land">Land</span></td>
+                            <td>5,110</td>
+                            <td>$12M</td>
+                            <td>—</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>JLL</td>
+                        </tr>
+                        <!-- Australia -->
+                        <tr data-country="Australia">
+                            <td>
+                                <div class="property-name">468 St Kilda Road</div>
+                                <div class="property-address">468 St Kilda Road, Melbourne VIC</div>
+                            </td>
+                            <td>🇦🇺 Melbourne</td>
+                            <td><span class="type-badge office">Office</span></td>
+                            <td>12,500</td>
+                            <td>$62M</td>
+                            <td>5.8%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>Knight Frank</td>
+                        </tr>
+                        <tr data-country="Australia">
+                            <td>
+                                <div class="property-name">Peninsula Place</div>
+                                <div class="property-address">454-472 Nepean Hwy, Frankston VIC</div>
+                            </td>
+                            <td>🇦🇺 Melbourne</td>
+                            <td><span class="type-badge office">Office</span></td>
+                            <td>4,200</td>
+                            <td>$18M</td>
+                            <td>6.5%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>Knight Frank</td>
+                        </tr>
+                        <tr data-country="Australia">
+                            <td>
+                                <div class="property-name">66 Annerley Road</div>
+                                <div class="property-address">Woolloongabba, Brisbane QLD</div>
+                            </td>
+                            <td>🇦🇺 Brisbane</td>
+                            <td><span class="type-badge office">Healthcare</span></td>
+                            <td>724</td>
+                            <td>$4.5M</td>
+                            <td>6.2%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>JLL</td>
+                        </tr>
+                        <tr data-country="Australia">
+                            <td>
+                                <div class="property-name">Eastern Creek Logistics</div>
+                                <div class="property-address">Western Sydney, NSW</div>
+                            </td>
+                            <td>🇦🇺 Sydney</td>
+                            <td><span class="type-badge industrial">Industrial</span></td>
+                            <td>22,000</td>
+                            <td>$55M</td>
+                            <td>5.2%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>CBRE</td>
+                        </tr>
+                        <tr data-country="Australia">
+                            <td>
+                                <div class="property-name">Winston Glades Shopping Centre</div>
+                                <div class="property-address">259 Ash Street, Flinders View QLD</div>
+                            </td>
+                            <td>🇦🇺 Brisbane</td>
+                            <td><span class="type-badge retail">Retail</span></td>
+                            <td>10,000</td>
+                            <td>$28M</td>
+                            <td>6.8%</td>
+                            <td><span class="status-pill cfo">Call for Offers</span></td>
+                            <td>JLL</td>
+                        </tr>
+                        <!-- Singapore -->
+                        <tr data-country="Singapore">
+                            <td>
+                                <div class="property-name">218 Pandan Loop</div>
+                                <div class="property-address">Pandan Loop, Singapore</div>
+                            </td>
+                            <td>🇸🇬 Singapore</td>
+                            <td><span class="type-badge industrial">Food Industrial</span></td>
+                            <td>18,500</td>
+                            <td>$75M</td>
+                            <td>5.0%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>CBRE</td>
+                        </tr>
+                        <tr data-country="Singapore">
+                            <td>
+                                <div class="property-name">Jurong Industrial Hub</div>
+                                <div class="property-address">Jurong West, Singapore</div>
+                            </td>
+                            <td>🇸🇬 Singapore</td>
+                            <td><span class="type-badge industrial">Industrial</span></td>
+                            <td>8,200</td>
+                            <td>$42M</td>
+                            <td>4.8%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>JLL</td>
+                        </tr>
+                        <tr data-country="Singapore">
+                            <td>
+                                <div class="property-name">Changi Business Park Office</div>
+                                <div class="property-address">Changi Business Park, Singapore</div>
+                            </td>
+                            <td>🇸🇬 Singapore</td>
+                            <td><span class="type-badge office">Office</span></td>
+                            <td>5,500</td>
+                            <td>$38M</td>
+                            <td>4.2%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>Savills</td>
+                        </tr>
+                        <!-- Hong Kong -->
+                        <tr data-country="Hong Kong">
+                            <td>
+                                <div class="property-name">Kowloon Bay Office Floor</div>
+                                <div class="property-address">Kowloon Bay, Hong Kong</div>
+                            </td>
+                            <td>🇭🇰 Hong Kong</td>
+                            <td><span class="type-badge office">Office</span></td>
+                            <td>2,300</td>
+                            <td>$45M</td>
+                            <td>4.5%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>Savills</td>
+                        </tr>
+                        <tr data-country="Hong Kong">
+                            <td>
+                                <div class="property-name">Central Core Office</div>
+                                <div class="property-address">Des Voeux Road Central, HK</div>
+                            </td>
+                            <td>🇭🇰 Hong Kong</td>
+                            <td><span class="type-badge office">Office</span></td>
+                            <td>1,800</td>
+                            <td>$72M</td>
+                            <td>3.8%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>CBRE</td>
+                        </tr>
+                        <tr data-country="Hong Kong">
+                            <td>
+                                <div class="property-name">Kwun Tong Industrial Conversion</div>
+                                <div class="property-address">Kwun Tong, Hong Kong</div>
+                            </td>
+                            <td>🇭🇰 Hong Kong</td>
+                            <td><span class="type-badge industrial">Industrial</span></td>
+                            <td>6,500</td>
+                            <td>$55M</td>
+                            <td>5.5%</td>
+                            <td><span class="status-pill available">Available</span></td>
+                            <td>Knight Frank</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pipeline-disclaimer">
+                <strong>Note:</strong> Indicative pricing based on market cap rates. Actual transaction values confidential. 
+                Pipeline updated weekly from broker relationships and public listings.
             </div>
         </section>
 

@@ -1096,6 +1096,162 @@ body.dashboard-mode {
 }
 
 /* ========================================
+   DEAL PIPELINE
+   ======================================== */
+
+.status-badge.live {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.pipeline-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.pipeline-kpi {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.pkpi-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.pkpi-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pipeline-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--text-primary);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--text-primary);
+}
+
+.pipeline-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+.pipeline-table {
+    min-width: 1000px;
+}
+
+.pipeline-table td:first-child {
+    min-width: 280px;
+}
+
+.property-name {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.property-address {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.type-badge.office {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+}
+
+.type-badge.industrial {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent);
+}
+
+.type-badge.retail {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.type-badge.land {
+    background: rgba(148, 163, 184, 0.1);
+    color: var(--text-secondary);
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.status-pill.available {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent);
+}
+
+.status-pill.uc {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.status-pill.cfo {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+}
+
+.pipeline-disclaimer {
+    padding: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.pipeline-disclaimer strong {
+    color: var(--text-secondary);
+}
+
+/* ========================================
    RESPONSIVE
    ======================================== */
 
@@ -1141,5 +1297,15 @@ body.dashboard-mode {
     
     .comparison-arrow {
         transform: rotate(90deg);
+    }
+    
+    .pipeline-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .pipeline-filters {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
 }
