@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitsubishi Estate Analysis | Courtenay Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --accent: #c9a227;
+            --bg: #ffffff;
+            --bg-alt: #f8f9fa;
+            --text: #1a202c;
+            --text-light: #4a5568;
+            --text-muted: #718096;
+            --border: #e2e8f0;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .page { max-width: 1100px; margin: 0 auto; padding: 40px; }
+        
+        /* Header */
+        .header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            padding-bottom: 20px; border-bottom: 3px solid var(--primary); margin-bottom: 32px;
+        }
+        .branding { display: flex; align-items: center; gap: 12px; }
+        .logo {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 6px; display: flex; align-items: center; justify-content: center;
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white;
+        }
+        .company { font-size: 18px; font-weight: 600; color: var(--primary); }
+        .doc-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .meta { text-align: right; font-size: 11px; color: var(--text-muted); }
+        .confidential {
+            display: inline-block; padding: 3px 10px; background: var(--danger); color: white;
+            font-size: 9px; font-weight: 700; text-transform: uppercase; border-radius: 3px; margin-top: 6px;
+        }
+        
+        /* Cover */
+        .cover {
+            background: linear-gradient(135deg, #c41e3a, #8b0000);
+            color: white; padding: 40px; border-radius: 10px; margin-bottom: 32px;
+        }
+        .cover-title { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+        .cover-subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 24px; }
+        .cover-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+        .cover-kpi {
+            text-align: center; padding: 16px 8px; background: rgba(255,255,255,0.1); border-radius: 6px;
+        }
+        .cover-kpi-value { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; }
+        .cover-kpi-label { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+        
+        /* Sections */
+        .section { margin-bottom: 32px; }
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600;
+            color: var(--primary); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border);
+        }
+        .section-intro { color: var(--text-light); margin-bottom: 16px; }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-alt); border-radius: 8px; padding: 20px; margin-bottom: 16px;
+            border-left: 4px solid var(--primary);
+        }
+        .card-title { font-weight: 600; font-size: 15px; color: var(--primary); margin-bottom: 12px; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+        th { 
+            background: #c41e3a; color: white; padding: 10px 12px; text-align: left;
+            font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+        tr:hover { background: var(--bg-alt); }
+        
+        /* Tags */
+        .tag {
+            display: inline-block; padding: 3px 10px; border-radius: 4px;
+            font-size: 10px; font-weight: 600; text-transform: uppercase;
+        }
+        .tag-high { background: #fed7d7; color: #c53030; }
+        .tag-medium { background: #fef3c7; color: #d97706; }
+        .tag-low { background: #c6f6d5; color: #276749; }
+        
+        /* Key Insight */
+        .insight {
+            background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 8px;
+            padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--accent);
+        }
+        .insight-title { font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        
+        /* Two column */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        @media (max-width: 768px) { 
+            .two-col, .three-col { grid-template-columns: 1fr; } 
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--border);
+            text-align: center; color: var(--text-muted); font-size: 11px;
+        }
+        
+        /* Back link */
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--primary); text-decoration: none; font-size: 13px; margin-bottom: 24px;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Region cards */
+        .region-card {
+            background: var(--bg-alt); border-radius: 8px; padding: 16px; text-align: center;
+        }
+        .region-flag { font-size: 28px; margin-bottom: 8px; }
+        .region-name { font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+        .region-projects { font-size: 24px; font-weight: 700; color: var(--text); }
+        .region-detail { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html#research" class="back-link">← Back to Research</a>
+        
+        <header class="header">
+            <div class="branding">
+                <div class="logo">CP</div>
+                <div>
+                    <div class="company">Courtenay Partners</div>
+                    <div class="doc-type">Strategic Analysis</div>
+                </div>
+            </div>
+            <div class="meta">
+                <div>18 March 2026</div>
+                <div>Analyst: Howard</div>
+                <div class="confidential">Confidential</div>
+            </div>
+        </header>
+
+        <div class="cover">
+            <div class="cover-title">Mitsubishi Estate (三菱地所)</div>
+            <div class="cover-subtitle">Global Development Portfolio Analysis</div>
+            <div class="cover-kpis">
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">¥1T+</div>
+                    <div class="cover-kpi-label">Dev Pipeline</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">46+</div>
+                    <div class="cover-kpi-label">Active Projects</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">£1.7B</div>
+                    <div class="cover-kpi-label">London Projects</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">A$450M</div>
+                    <div class="cover-kpi-label">AUS Divestment</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight">
+            <div class="insight-title">💡 Key Insight — Capital Recycling Model</div>
+            <div>MEC follows a <strong>"develop → stabilize → recycle"</strong> strategy. They're actively divesting stabilized Australian assets to reinvest in growth projects. Best opportunities: stabilized logistics (Logicross), Australian residential/BTR, and UK Bromley logistics.</div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Portfolio by Region</h2>
+            <div class="three-col" style="margin-bottom: 24px;">
+                <div class="region-card">
+                    <div class="region-flag">🇯🇵</div>
+                    <div class="region-name">Japan</div>
+                    <div class="region-projects">22</div>
+                    <div class="region-detail">Office + Logistics + Hotels</div>
+                </div>
+                <div class="region-card">
+                    <div class="region-flag">🇬🇧🇫🇷</div>
+                    <div class="region-name">Europe</div>
+                    <div class="region-projects">5</div>
+                    <div class="region-detail">London Office + Logistics</div>
+                </div>
+                <div class="region-card">
+                    <div class="region-flag">🇸🇬🇨🇳🇮🇩🇮🇳</div>
+                    <div class="region-name">Asia</div>
+                    <div class="region-projects">5</div>
+                    <div class="region-detail">Mixed-use + Logistics</div>
+                </div>
+                <div class="region-card">
+                    <div class="region-flag">🇦🇺</div>
+                    <div class="region-name">Australia</div>
+                    <div class="region-projects">13</div>
+                    <div class="region-detail">Active Capital Recycling</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">1. Japan — Flagship Projects</h2>
+            <p class="section-intro">Core Marunouchi office assets are NOT divestment candidates. Logistics (Logicross brand) = prime recycling targets.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>City</th>
+                        <th>Type</th>
+                        <th>GFA (sqm)</th>
+                        <th>Completion</th>
+                        <th>Divestment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Torch Tower</strong></td>
+                        <td>Tokyo</td>
+                        <td>Office</td>
+                        <td>553,000</td>
+                        <td>2028</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td>GRAND GREEN OSAKA</td>
+                        <td>Osaka</td>
+                        <td>Mixed-use</td>
+                        <td>378,450</td>
+                        <td>2024+</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td>Kyoto Joyo Logistics</td>
+                        <td>Kyoto</td>
+                        <td>Logistics</td>
+                        <td>277,000</td>
+                        <td>2026+</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td>Akasaka 2·6-chome</td>
+                        <td>Tokyo</td>
+                        <td>Mixed-use</td>
+                        <td>205,800</td>
+                        <td>Mar 2028</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Logicross Misato</strong></td>
+                        <td>Saitama</td>
+                        <td>Logistics</td>
+                        <td>135,000</td>
+                        <td>Aug 2026</td>
+                        <td><span class="tag tag-medium">MEDIUM</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Logicross Osaka Suminoe</strong></td>
+                        <td>Osaka</td>
+                        <td>Logistics</td>
+                        <td>43,500</td>
+                        <td>Mar 2025</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="card">
+                <div class="card-title">🏭 Logicross Strategy</div>
+                <p>MEC develops logistics, stabilizes, then sells to their own REIT (Mitsubishi Estate Logistics REIT, TYO:3481) or third-party institutions. <strong>Stabilized Logicross assets are prime acquisition targets.</strong></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">2. UK Projects — Just Started Apr 2025</h2>
+            <p class="section-intro">£1.7B (¥248bn) London development program. Flagship projects = NOT divestment candidates.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Location</th>
+                        <th>Area (sqm)</th>
+                        <th>Investment</th>
+                        <th>Completion</th>
+                        <th>Divestment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>72 Upper Ground</strong></td>
+                        <td>Southbank</td>
+                        <td>59,600</td>
+                        <td>~£880m</td>
+                        <td>2029</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>1 Victoria Street</strong></td>
+                        <td>Westminster</td>
+                        <td>39,800</td>
+                        <td>~£480m</td>
+                        <td>2028</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td>125 Shaftesbury Avenue</td>
+                        <td>West End</td>
+                        <td>23,900</td>
+                        <td>—</td>
+                        <td>2028</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bromley Logistics</strong></td>
+                        <td>Bromley</td>
+                        <td>8,100</td>
+                        <td>£30-50m</td>
+                        <td>2026</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="card">
+                <div class="card-title">🎯 Bromley = Evo Lake Opportunity</div>
+                <p>Smaller scale (8,100 sqm), 9 units across 3 buildings. Non-core to MEC's London strategy. <strong>Potential partnership or operating partner role.</strong></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">3. Australia — Active Capital Recycling</h2>
+            <p class="section-intro">MEC Asia actively divesting stabilized Australian assets. Key quote from CEO: <em>"This divestment will allow us to recycle capital and pursue further high-quality investment opportunities."</em></p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>City</th>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Status</th>
+                        <th>Divestment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>180 George Street</strong></td>
+                        <td>Sydney</td>
+                        <td>Office</td>
+                        <td>55,000 sqm</td>
+                        <td>Sold 30% (Aug 2024)</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stockland Land Lease</strong></td>
+                        <td>QLD/VIC</td>
+                        <td>Land Lease</td>
+                        <td>~2,000 units</td>
+                        <td>A$450m sale (Feb 2026)</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LIV BTR Portfolio</strong></td>
+                        <td>Multiple</td>
+                        <td>BTR</td>
+                        <td>~2,200 units</td>
+                        <td>Near stabilization</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise Industry Park</td>
+                        <td>Melbourne</td>
+                        <td>Logistics</td>
+                        <td>70,000 sqm</td>
+                        <td>Under development</td>
+                        <td><span class="tag tag-medium">MEDIUM</span></td>
+                    </tr>
+                    <tr>
+                        <td>Harbourside</td>
+                        <td>Sydney</td>
+                        <td>Mixed-use</td>
+                        <td>87,000 sqm</td>
+                        <td>Under development</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">4. Asia Development Pipeline</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Country</th>
+                        <th>Type</th>
+                        <th>Area (sqm)</th>
+                        <th>Completion</th>
+                        <th>Divestment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Two Sudirman Jakarta</td>
+                        <td>Indonesia</td>
+                        <td>Mixed-use</td>
+                        <td>252,000</td>
+                        <td>2028</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Crystal Bridge</strong></td>
+                        <td>China</td>
+                        <td>Office/Retail</td>
+                        <td>246,000</td>
+                        <td>2025</td>
+                        <td><span class="tag tag-medium">MEDIUM</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mappedu</strong></td>
+                        <td>India</td>
+                        <td>Logistics</td>
+                        <td>118,000</td>
+                        <td>2026</td>
+                        <td><span class="tag tag-medium">MEDIUM</span></td>
+                    </tr>
+                    <tr>
+                        <td>Kallang Way</td>
+                        <td>Singapore</td>
+                        <td>Logistics</td>
+                        <td>104,370</td>
+                        <td>2028</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">5. Divestment Targets Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asset</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                        <th>Est. Value</th>
+                        <th>Likelihood</th>
+                        <th>Evo Lake Angle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Logicross Osaka Suminoe</td>
+                        <td>Japan</td>
+                        <td>Logistics</td>
+                        <td>¥10-15bn</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                        <td>Institutional buyer intro</td>
+                    </tr>
+                    <tr>
+                        <td>180 George Street (remaining)</td>
+                        <td>Sydney</td>
+                        <td>Office</td>
+                        <td>A$200m+</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                        <td>Buyer identification</td>
+                    </tr>
+                    <tr>
+                        <td>LIV BTR Portfolio</td>
+                        <td>Australia</td>
+                        <td>BTR</td>
+                        <td>A$500m+</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                        <td>Sale advisory</td>
+                    </tr>
+                    <tr>
+                        <td>Bromley Logistics</td>
+                        <td>UK</td>
+                        <td>Logistics</td>
+                        <td>£30-50m</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                        <td>Partnership / operating</td>
+                    </tr>
+                    <tr>
+                        <td>Crystal Bridge Shanghai</td>
+                        <td>China</td>
+                        <td>Office</td>
+                        <td>$300m+</td>
+                        <td><span class="tag tag-medium">MEDIUM</span></td>
+                        <td>Investor introduction</td>
+                    </tr>
+                    <tr>
+                        <td>Mappedu Chennai</td>
+                        <td>India</td>
+                        <td>Logistics</td>
+                        <td>$50m+</td>
+                        <td><span class="tag tag-medium">MEDIUM</span></td>
+                        <td>JV partner intro</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">6. Evo Lake Opportunities</h2>
+            <div class="two-col">
+                <div class="card">
+                    <div class="card-title">🇬🇧 UK Logistics Partnership</div>
+                    <p><strong>Target:</strong> Bromley project (8,100 sqm, 9 units)</p>
+                    <p><strong>Value prop:</strong> Local market intel, tenant sourcing</p>
+                    <p><strong>Fee:</strong> Operating partner fees</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">🇦🇺 Australian Disposal Advisory</div>
+                    <p><strong>Target:</strong> LIV BTR, 180 George Street</p>
+                    <p><strong>Value prop:</strong> Buyer identification, process support</p>
+                    <p><strong>Fee:</strong> 0.5-1% transaction</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">🇯🇵 Japan Logistics Intro</div>
+                    <p><strong>Target:</strong> Stabilized Logicross assets</p>
+                    <p><strong>Value prop:</strong> Connect UK/Asian institutional buyers</p>
+                    <p><strong>Fee:</strong> Referral fees</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">🤝 Leverage Adam's Relationship</div>
+                    <p>Adam has existing Mitsubishi connection — "would work with Adam again"</p>
+                    <p>Use Singapore/Sydney presence for Australian introductions</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Prepared by Courtenay Partners • 18 March 2026 • Confidential</p>
+            <p style="margin-top: 8px;"><a href="research/Mitsubishi_Estate_Developments.xlsx" download style="color: var(--primary);">📊 Download Excel Data</a></p>
+        </footer>
+    </div>
+</body>
+</html>

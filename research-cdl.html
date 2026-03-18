@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDL UK Portfolio Analysis | Courtenay Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --accent: #c9a227;
+            --bg: #ffffff;
+            --bg-alt: #f8f9fa;
+            --text: #1a202c;
+            --text-light: #4a5568;
+            --text-muted: #718096;
+            --border: #e2e8f0;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .page { max-width: 1100px; margin: 0 auto; padding: 40px; }
+        
+        /* Header */
+        .header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            padding-bottom: 20px; border-bottom: 3px solid var(--primary); margin-bottom: 32px;
+        }
+        .branding { display: flex; align-items: center; gap: 12px; }
+        .logo {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 6px; display: flex; align-items: center; justify-content: center;
+            font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white;
+        }
+        .company { font-size: 18px; font-weight: 600; color: var(--primary); }
+        .doc-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .meta { text-align: right; font-size: 11px; color: var(--text-muted); }
+        .confidential {
+            display: inline-block; padding: 3px 10px; background: var(--danger); color: white;
+            font-size: 9px; font-weight: 700; text-transform: uppercase; border-radius: 3px; margin-top: 6px;
+        }
+        
+        /* Cover */
+        .cover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white; padding: 40px; border-radius: 10px; margin-bottom: 32px;
+        }
+        .cover-title { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+        .cover-subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 24px; }
+        .cover-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+        .cover-kpi {
+            text-align: center; padding: 16px 8px; background: rgba(255,255,255,0.1); border-radius: 6px;
+        }
+        .cover-kpi-value { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; }
+        .cover-kpi-label { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+        
+        /* Sections */
+        .section { margin-bottom: 32px; }
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600;
+            color: var(--primary); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border);
+        }
+        .section-intro { color: var(--text-light); margin-bottom: 16px; }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-alt); border-radius: 8px; padding: 20px; margin-bottom: 16px;
+            border-left: 4px solid var(--primary);
+        }
+        .card-title { font-weight: 600; font-size: 15px; color: var(--primary); margin-bottom: 12px; }
+        
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+        th { 
+            background: var(--primary); color: white; padding: 10px 12px; text-align: left;
+            font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+        tr:hover { background: var(--bg-alt); }
+        
+        /* Tags */
+        .tag {
+            display: inline-block; padding: 3px 10px; border-radius: 4px;
+            font-size: 10px; font-weight: 600; text-transform: uppercase;
+        }
+        .tag-high { background: #fed7d7; color: #c53030; }
+        .tag-medium { background: #fef3c7; color: #d97706; }
+        .tag-low { background: #c6f6d5; color: #276749; }
+        
+        /* Key Insight */
+        .insight {
+            background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 8px;
+            padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--accent);
+        }
+        .insight-title { font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        
+        /* Two column */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+        
+        /* Footer */
+        .footer {
+            margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--border);
+            text-align: center; color: var(--text-muted); font-size: 11px;
+        }
+        
+        /* Back link */
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--primary); text-decoration: none; font-size: 13px; margin-bottom: 24px;
+        }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html#research" class="back-link">← Back to Research</a>
+        
+        <header class="header">
+            <div class="branding">
+                <div class="logo">CP</div>
+                <div>
+                    <div class="company">Courtenay Partners</div>
+                    <div class="doc-type">Strategic Analysis</div>
+                </div>
+            </div>
+            <div class="meta">
+                <div>18 March 2026</div>
+                <div>Analyst: Howard</div>
+                <div class="confidential">Confidential</div>
+            </div>
+        </header>
+
+        <div class="cover">
+            <div class="cover-title">CDL UK Property Portfolio</div>
+            <div class="cover-subtitle">Deep Dive Analysis — City Developments Limited</div>
+            <div class="cover-kpis">
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">£1.8-2.2B</div>
+                    <div class="cover-kpi-label">Portfolio Value</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">31+</div>
+                    <div class="cover-kpi-label">UK Assets</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">17</div>
+                    <div class="cover-kpi-label">M&C Hotels</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">£2.3B</div>
+                    <div class="cover-kpi-label">Dev Pipeline GDV</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">S$600M</div>
+                    <div class="cover-kpi-label">2024 Divestments</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight">
+            <div class="insight-title">💡 Key Insight</div>
+            <div>CDL has been actively recycling capital since privatizing M&C Hotels in 2019 (£776m). They've divested multiple non-core assets — signaling openness to structured exits. Ideal for Evo Lake's "embedded investment manager" positioning.</div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">1. Commercial Office Portfolio</h2>
+            <p class="section-intro">Three Central London assets acquired 2018-2023. Total estimated value: £600-700m.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asset</th>
+                        <th>Location</th>
+                        <th>Size</th>
+                        <th>Acquisition</th>
+                        <th>Est. Value</th>
+                        <th>Divestment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>St Katharine Docks</strong></td>
+                        <td>Tower Bridge, E1</td>
+                        <td>524,752 sq ft</td>
+                        <td>£395m (2023)</td>
+                        <td>£380-420m</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>125 Old Broad Street</strong></td>
+                        <td>City, EC2</td>
+                        <td>328,806 sq ft</td>
+                        <td>£385m (2018)</td>
+                        <td>£280-320m</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aldgate House</strong></td>
+                        <td>Aldgate, EC3</td>
+                        <td>209,860 sq ft</td>
+                        <td>£183m (2018)</td>
+                        <td>£140-170m</td>
+                        <td><span class="tag tag-medium">MED-HIGH</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="card">
+                <div class="card-title">⚠️ 125 Old Broad Street — Likely Impaired</div>
+                <p>Acquired at peak pricing (2018) at £1,170 psf. City office vacancy now at multi-year highs (~10%). Estimated impairment: £65-105m (17-27%). Non-core asset — prime capital recycling candidate.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">2. M&C Hotel Portfolio (17 UK Hotels)</h2>
+            <p class="section-intro">CDL privatized M&C in 2019 for £776m. ~3,903 UK rooms. Est. value: £900m-1.2bn.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hotel</th>
+                        <th>Location</th>
+                        <th>Rooms</th>
+                        <th>Est. Value</th>
+                        <th>Divestment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Copthorne Tara</td>
+                        <td>Kensington</td>
+                        <td>833</td>
+                        <td>£180-220m</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td>The Biltmore Mayfair</td>
+                        <td>Mayfair</td>
+                        <td>307</td>
+                        <td>£200-250m</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td>Millennium Gloucester</td>
+                        <td>Kensington</td>
+                        <td>611</td>
+                        <td>£140-180m</td>
+                        <td><span class="tag tag-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td>Regional Copthornes</td>
+                        <td>Newcastle/Cardiff/Plymouth/Merry Hill/Aberdeen</td>
+                        <td>651</td>
+                        <td>£45-70m</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td>Gatwick Copthornes</td>
+                        <td>Gatwick Airport</td>
+                        <td>349</td>
+                        <td>£37-53m</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">3. Development Pipeline</h2>
+            <p class="section-intro">Four active UK development sites. Combined GDV: £1.9-2.3bn.</p>
+            
+            <div class="two-col">
+                <div class="card">
+                    <div class="card-title">🏗️ Stag Brewery, Mortlake</div>
+                    <p><strong>GDV:</strong> £1.1-1.3bn | <strong>Units:</strong> 1,075 homes</p>
+                    <p><strong>Status:</strong> Planning approved (GLA May 2025)</p>
+                    <p><strong>Timeline:</strong> 5-7 years to full delivery</p>
+                    <p style="margin-top: 8px;"><span class="tag tag-medium">MED-HIGH</span> divestment — may seek JV partner</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">🏗️ Morden Wharf, Greenwich</div>
+                    <p><strong>GDV:</strong> £800m-1bn | <strong>Units:</strong> 1,500 homes</p>
+                    <p><strong>Status:</strong> Planning approved (2021)</p>
+                    <p><strong>JV:</strong> 50/50 with Galliard Homes</p>
+                    <p style="margin-top: 8px;"><span class="tag tag-low">LOW</span> divestment — active development</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">4. PBSA Portfolio (6 Assets)</h2>
+            <p class="section-intro">2,368 beds across 6 UK cities. Acquired Dec 2022 from Harrison Street for £215m.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Location</th>
+                        <th>Beds</th>
+                        <th>Est. Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Trinity View</td><td>Coventry</td><td>614</td><td>£40-55m</td></tr>
+                    <tr><td>Infinity</td><td>Coventry</td><td>505</td><td>£35-45m</td></tr>
+                    <tr><td>Riverside</td><td>Canterbury</td><td>491</td><td>£30-40m</td></tr>
+                    <tr><td>Altura</td><td>Birmingham</td><td>435</td><td>£30-40m</td></tr>
+                    <tr><td>Cumberland Place</td><td>Southampton</td><td>206</td><td>£15-22m</td></tr>
+                    <tr><td>Sycamore House</td><td>Leeds</td><td>117</td><td>£8-12m</td></tr>
+                </tbody>
+            </table>
+            <p><span class="tag tag-medium">MEDIUM</span> divestment — non-core, could package as single portfolio sale.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">5. BTR — The Junction, Leeds</h2>
+            <div class="card">
+                <div class="card-title">🏢 The Junction, Leeds</div>
+                <p><strong>Units:</strong> 665 apartments | <strong>Commercial:</strong> 28,000 sq ft</p>
+                <p><strong>Est. Value:</strong> £150-200m | <strong>Yield:</strong> 4.5-5.5%</p>
+                <p><strong>Status:</strong> Operational (completed 2022-2023)</p>
+                <p style="margin-top: 8px;"><span class="tag tag-medium">MED-HIGH</span> divestment — stabilized BTR asset, strong institutional demand</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">6. Divestment Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asset</th>
+                        <th>Type</th>
+                        <th>Est. Value</th>
+                        <th>Likelihood</th>
+                        <th>Evo Lake Angle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>125 Old Broad Street</td>
+                        <td>Office</td>
+                        <td>£280-320m</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                        <td>Repositioning advisory</td>
+                    </tr>
+                    <tr>
+                        <td>Regional Copthornes (5)</td>
+                        <td>Hotels</td>
+                        <td>£45-70m</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                        <td>Consolidation advisory</td>
+                    </tr>
+                    <tr>
+                        <td>Gatwick Copthornes (2)</td>
+                        <td>Hotels</td>
+                        <td>£37-53m</td>
+                        <td><span class="tag tag-high">HIGH</span></td>
+                        <td>Alternative use analysis</td>
+                    </tr>
+                    <tr>
+                        <td>The Junction Leeds</td>
+                        <td>BTR</td>
+                        <td>£150-200m</td>
+                        <td><span class="tag tag-medium">MED-HIGH</span></td>
+                        <td>Sale advisory</td>
+                    </tr>
+                    <tr>
+                        <td>PBSA Portfolio</td>
+                        <td>Student</td>
+                        <td>£160-215m</td>
+                        <td><span class="tag tag-medium">MEDIUM</span></td>
+                        <td>Portfolio sale</td>
+                    </tr>
+                    <tr>
+                        <td>Stag Brewery Mortlake</td>
+                        <td>Development</td>
+                        <td>£1.1-1.3bn GDV</td>
+                        <td><span class="tag tag-medium">MED-HIGH</span></td>
+                        <td>JV structuring</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">7. Key Contacts</h2>
+            <div class="two-col">
+                <div class="card">
+                    <div class="card-title">Sherman Kwek</div>
+                    <p>Group CEO — Strategic decisions, capital allocation</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">Frank Khoo</div>
+                    <p>Group CFO — Financial structuring, divestments</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Prepared by Courtenay Partners • 18 March 2026 • Confidential</p>
+            <p style="margin-top: 8px;"><a href="research/CDL_UK_Portfolio.xlsx" download style="color: var(--primary);">📊 Download Excel Data</a></p>
+        </footer>
+    </div>
+</body>
+</html>
