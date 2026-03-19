@@ -17,14 +17,12 @@
         .site-nav-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; }
         .site-nav-links { display: flex; gap: 24px; }
         .site-nav-links a { color: var(--text-light); text-decoration: none; font-size: 14px; }
-        .site-nav-links a:hover { color: var(--primary); }
         .page { max-width: 1100px; margin: 0 auto; padding: 40px; }
         .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); text-decoration: none; font-size: 13px; margin-bottom: 24px; }
-        .back-link:hover { text-decoration: underline; }
         .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 20px; border-bottom: 2px solid var(--border); margin-bottom: 32px; }
         .branding { display: flex; align-items: center; gap: 12px; }
         .logo { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white; }
-        .company { font-size: 18px; font-weight: 600; color: var(--text); }
+        .company { font-size: 18px; font-weight: 600; }
         .doc-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
         .meta { text-align: right; font-size: 11px; color: var(--text-muted); }
         .confidential { display: inline-block; padding: 3px 10px; background: var(--danger); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; border-radius: 3px; margin-top: 6px; }
@@ -44,13 +42,16 @@
         td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
         tr:hover { background: var(--bg-alt); }
         .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
-        .tag-buy { background: #22C55E; color: white; }
-        .tag-tenant { background: #3B82F6; color: white; }
-        .insight { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--accent); }
-        .insight-title { font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+        .tag-high { background: #EF4444; color: white; }
+        .tag-med { background: #F59E0B; color: white; }
+        .tag-low { background: #22C55E; color: white; }
+        .tag-buy { background: #3B82F6; color: white; }
+        .tag-zero { background: #EF4444; color: white; }
+        .action-box { background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05)); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; padding: 20px; margin: 24px 0; }
+        .action-title { font-weight: 700; color: var(--success); margin-bottom: 12px; font-size: 16px; }
+        .highlight { background: rgba(239,68,68,0.2); padding: 12px 16px; border-radius: 6px; margin: 16px 0; border-left: 4px solid var(--danger); }
         .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        @media (max-width: 768px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
         .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 11px; }
     </style>
 </head>
@@ -78,7 +79,7 @@
                 </div>
             </div>
             <div class="meta">
-                <div>19 March 2026</div>
+                <div>19 March 2026 (Expanded)</div>
                 <div>Analyst: Howard</div>
                 <div class="confidential">Confidential</div>
             </div>
@@ -86,131 +87,191 @@
 
         <div class="cover">
             <div class="cover-title">Equalbase</div>
-            <div class="cover-subtitle">Stonepeak-Backed Sustainable Logistics — Targeting Europe Expansion</div>
+            <div class="cover-subtitle">Stonepeak-Backed ($72B) — Targets "Asia AND Europe" — ZERO European Presence</div>
             <div class="cover-kpis">
                 <div class="cover-kpi">
                     <div class="cover-kpi-value">$72B</div>
                     <div class="cover-kpi-label">Stonepeak AUM</div>
                 </div>
                 <div class="cover-kpi">
-                    <div class="cover-kpi-value">$3B+</div>
-                    <div class="cover-kpi-label">APAC Committed</div>
+                    <div class="cover-kpi-value">$1.7B</div>
+                    <div class="cover-kpi-label">Sunway JV</div>
                 </div>
                 <div class="cover-kpi">
                     <div class="cover-kpi-value">13</div>
                     <div class="cover-kpi-label">Projects</div>
                 </div>
                 <div class="cover-kpi">
-                    <div class="cover-kpi-value">3</div>
-                    <div class="cover-kpi-label">Countries</div>
-                </div>
-                <div class="cover-kpi">
                     <div class="cover-kpi-value">ZERO</div>
-                    <div class="cover-kpi-label">UK/EU Assets</div>
+                    <div class="cover-kpi-label">Europe Presence</div>
                 </div>
             </div>
         </div>
 
-        <div class="insight">
-            <div class="insight-title">🎯 Key Opportunity — Europe Expansion</div>
-            <div>Equalbase explicitly targets <strong>Europe</strong> for Amberock Fund expansion but has <strong>ZERO UK/EU presence</strong>. Stonepeak has $3B+ APAC commitment. Blue-chip tenants (BMW, VW) may need UK facilities. <strong>CP can be their UK origination partner.</strong></div>
+        <div class="highlight">
+            <strong>🚨 KEY INSIGHT:</strong> Amberock Fund mandate explicitly targets "Asia AND Europe" — but they have ZERO European assets. 3 of 4 known tenants are German companies (BMW, VW, Rohde & Schwarz). Natural bridge to UK/EU expansion exists.
+        </div>
+
+        <div class="action-box">
+            <div class="action-title">🎯 CP OPPORTUNITY: EUROPE MARKET ENTRY PARTNER</div>
+            <p><strong>Pitch:</strong> "We noticed Amberock targets Asia AND Europe — but you have zero European presence. We can be your UK/EU market entry partner."</p>
+            <p><strong>Angle:</strong> German tenants (BMW, VW) may need UK/EU facilities</p>
+            <p><strong>Risk:</strong> Europe expansion may be aspirational vs active — verify on first call</p>
+            <p style="margin-top: 12px;"><strong>Next Step:</strong> LinkedIn connect with Christian Bischoff (Founder) and Lee (Managing Partner, Northmod)</p>
         </div>
 
         <section class="section">
-            <h2 class="section-title">1. Investment Structure</h2>
-            <div class="card">
-                <div class="card-title">Stonepeak → Equalbase → Northmod → Amberock</div>
-                <p><strong>Stonepeak Partners</strong> ($72B AUM) — US alternative investment firm</p>
-                <p style="margin-top: 8px;">↓ Strategic partnership (Sept 2022)</p>
-                <p style="margin-top: 8px;"><strong>Equalbase</strong> — Singapore developer/operator</p>
-                <p style="margin-top: 8px;">↓ Manages</p>
-                <p style="margin-top: 8px;"><strong>Northmod</strong> — Investment manager</p>
-                <p style="margin-top: 8px;">↓ Oversees</p>
-                <p style="margin-top: 8px;"><strong>Amberock Fund</strong> — Sustainable logistics (Asia + Europe target)</p>
+            <h2 class="section-title">1. Company Structure</h2>
+            <table>
+                <thead>
+                    <tr><th>Entity</th><th>Role</th><th>Key Person</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Equalbase</strong></td><td>Developer/Operator</td><td>Christian Bischoff (Founder)</td></tr>
+                    <tr><td><strong>Northmod</strong></td><td>Investment Manager</td><td>Lee (Managing Partner)</td></tr>
+                    <tr><td><strong>Amberock Fund</strong></td><td>Investment Vehicle</td><td>—</td></tr>
+                    <tr><td><strong>Stonepeak</strong></td><td>Investor ($72B AUM)</td><td>Hajir Naghdy (Head APAC/ME)</td></tr>
+                </tbody>
+            </table>
+            <p style="color: var(--text-muted);">Founded 2009, Singapore HQ. Stonepeak invested September 2022.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">2. Current Portfolio — 13 Projects</h2>
+            
+            <h3 style="color: var(--text-light); margin: 16px 0 12px;">Malaysia (8 projects)</h3>
+            <table>
+                <thead>
+                    <tr><th>Project</th><th>Location</th><th>Tenant</th><th>Notes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>BMW RDC</strong></td><td>Senai, Johor</td><td>🇩🇪 <strong>BMW</strong></td><td>Regional Distribution Centre</td></tr>
+                    <tr><td><strong>VW RPDC</strong></td><td>PTP, Johor</td><td>🇩🇪 <strong>Volkswagen</strong></td><td>Logistics Innovation Hub</td></tr>
+                    <tr><td><strong>Valdor I</strong></td><td>Penang</td><td>TBD</td><td>$63M, carbon-cured concrete</td></tr>
+                    <tr><td><strong>Valdor II</strong></td><td>Penang</td><td>TBD</td><td>Adjacent expansion</td></tr>
+                    <tr><td><strong>PTP Warehouse</strong></td><td>Port Tanjung Pelepas</td><td>Various</td><td>Port-adjacent</td></tr>
+                    <tr><td><strong>PTP II</strong></td><td>Port Tanjung Pelepas</td><td>Various</td><td>Expansion</td></tr>
+                    <tr><td><strong>103° Free Zone</strong></td><td>Johor</td><td>TBD</td><td>Free commercial zone</td></tr>
+                    <tr><td><strong>Sunway JV</strong></td><td>Johor Bahru</td><td>Various</td><td><strong>RM 8B ($1.7B), 5M sq ft</strong></td></tr>
+                </tbody>
+            </table>
+            
+            <div class="two-col">
+                <div>
+                    <h3 style="color: var(--text-light); margin: 16px 0 12px;">Singapore (2 projects)</h3>
+                    <table>
+                        <tbody>
+                            <tr><td><strong>Changi Logistics Centre</strong></td><td>Near airport</td></tr>
+                            <tr><td><strong>Tuas Bay Drive</strong></td><td>Industrial area</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h3 style="color: var(--text-light); margin: 16px 0 12px;">South Korea (3 projects)</h3>
+                    <table>
+                        <tbody>
+                            <tr><td><strong>Yangju</strong></td><td>Stonepeak seed asset</td></tr>
+                            <tr><td><strong>Icheon Baeksa</strong></td><td>Seoul area</td></tr>
+                            <tr><td><strong>Iljuk</strong></td><td>Seoul area</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">2. Portfolio — 13 Projects</h2>
-            
-            <h3 style="font-size: 14px; margin: 20px 0 12px;">🇲🇾 Malaysia (8)</h3>
+            <h2 class="section-title">3. Blue-Chip Tenants — German Connection</h2>
             <table>
                 <thead>
-                    <tr><th>Project</th><th>Type</th><th>Tenant</th></tr>
+                    <tr><th>Tenant</th><th>Country</th><th>Facility</th><th>UK/EU Need?</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>103° Free Commercial Zone</td><td>Built to Lease</td><td>—</td></tr>
-                    <tr><td>Valdor I & II</td><td>Built to Lease</td><td>—</td></tr>
-                    <tr><td><strong>PTP</strong></td><td>Built to Suit</td><td><span class="tag tag-tenant">Volkswagen</span></td></tr>
-                    <tr><td>PTP II</td><td>Built to Lease</td><td>—</td></tr>
-                    <tr><td><strong>Senai</strong></td><td>Built to Suit</td><td><span class="tag tag-tenant">BMW</span></td></tr>
-                    <tr><td><strong>Senai III</strong></td><td>Built to Suit</td><td><span class="tag tag-tenant">Rohde & Schwarz</span></td></tr>
+                    <tr><td>🇩🇪 <strong>BMW</strong></td><td>Germany</td><td>RDC Senai</td><td><span class="tag tag-high">HIGH</span></td></tr>
+                    <tr><td>🇩🇪 <strong>Volkswagen</strong></td><td>Germany</td><td>RPDC PTP</td><td><span class="tag tag-high">HIGH</span></td></tr>
+                    <tr><td>🇩🇪 <strong>Rohde & Schwarz</strong></td><td>Germany</td><td>Confirmed</td><td><span class="tag tag-high">HIGH</span></td></tr>
+                    <tr><td>ACT&CORE</td><td>Unknown</td><td>Confirmed</td><td>Unknown</td></tr>
                 </tbody>
             </table>
             
-            <h3 style="font-size: 14px; margin: 20px 0 12px;">🇸🇬 Singapore (2)</h3>
-            <table>
-                <tbody>
-                    <tr><td>Changi Logistics Centre</td><td>Built to Lease</td><td>Near airport</td></tr>
-                    <tr><td>Tuas Bay Drive</td><td>Built to Lease</td><td>Industrial zone</td></tr>
-                </tbody>
-            </table>
-            
-            <h3 style="font-size: 14px; margin: 20px 0 12px;">🇰🇷 South Korea (3)</h3>
-            <table>
-                <tbody>
-                    <tr><td>Yangju</td><td>Built to Suit</td><td>ACT&CORE</td></tr>
-                    <tr><td>Icheon Baeksa</td><td>Built to Lease</td><td>—</td></tr>
-                    <tr><td>Iljuk</td><td>Built to Suit</td><td>TBC</td></tr>
-                </tbody>
-            </table>
+            <div class="card">
+                <div class="card-title">💡 German Tenant Angle</div>
+                <p>3 of 4 known tenants are German OEMs/manufacturers. These companies likely need UK/EU logistics facilities — post-Brexit supply chain restructuring creates opportunity.</p>
+                <p style="margin-top: 8px;"><strong>Pitch:</strong> "Your BMW/VW relationships could seed UK facilities. We can source sites near their existing UK operations."</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">3. Expansion Strategy</h2>
+            <h2 class="section-title">4. Amberock Fund — Europe Target</h2>
+            
             <div class="card">
-                <div class="card-title">💬 From Website</div>
-                <p><em>"Northmod invests in real estate and clean technology, leveraging its network to identify investment opportunities in key markets across <strong>APAC and Europe</strong>."</em></p>
+                <div class="card-title">📜 Official Mandate</div>
+                <blockquote style="font-style: italic; border-left: 3px solid var(--primary); padding-left: 16px; margin: 12px 0;">
+                    "Amberock is a real estate development fund managed by Northmod that specialises in sustainable logistics facilities across <strong>Asia and Europe</strong>."
+                </blockquote>
+                <p style="color: var(--text-muted);">— Northmod website</p>
             </div>
             
-            <h3 style="font-size: 14px; margin: 20px 0 12px;">What They're Looking For</h3>
-            <ul style="color: var(--text-light); margin-left: 20px;">
-                <li>Sustainable logistics facilities</li>
-                <li>E-commerce, FMCG, automotive, pharma, retail, industrial</li>
-                <li>Built-to-suit for blue-chip tenants</li>
-                <li>Long-term income assets</li>
-                <li>ESG-compliant buildings</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">4. CP Opportunity</h2>
             <table>
                 <thead>
-                    <tr><th>Opportunity</th><th>Description</th><th>Priority</th></tr>
+                    <tr><th>Stated Target</th><th>Current Presence</th><th>Opportunity</th></tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>UK deal sourcing</strong></td>
-                        <td>Source sustainable logistics for Amberock Fund</td>
-                        <td><span class="tag tag-buy">HIGH</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tenant introductions</strong></td>
-                        <td>BMW/VW may need UK facilities — connect to Equalbase</td>
-                        <td><span class="tag tag-buy">MEDIUM</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Europe market entry</strong></td>
-                        <td>Advisory on UK/EU market structure</td>
-                        <td><span class="tag tag-buy">MEDIUM</span></td>
+                        <td><strong>Europe</strong></td>
+                        <td><span class="tag tag-zero">ZERO</span></td>
+                        <td><span class="tag tag-buy">CP MARKET ENTRY</span></td>
                     </tr>
                 </tbody>
             </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">5. CP Opportunity — Fee Potential</h2>
+            <table>
+                <thead>
+                    <tr><th>Service</th><th>Deal Size</th><th>Fee</th><th>Est. Revenue</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>UK logistics sourcing</td><td>£50M+</td><td>0.5-1%</td><td>£250-500k</td></tr>
+                    <tr><td>German tenant facilities</td><td>£30-100M</td><td>0.5-1%</td><td>£150-1M</td></tr>
+                    <tr><td>Advisory/market entry</td><td>—</td><td>Retainer + success</td><td>£50-200k+</td></tr>
+                    <tr><td>JV co-investment</td><td>£100M+</td><td>Promote</td><td>Equity upside</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">6. Risk Assessment</h2>
+            <table>
+                <thead>
+                    <tr><th>Risk</th><th>Likelihood</th><th>Mitigation</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Europe expansion is aspirational, not active</td><td><span class="tag tag-med">MED</span></td><td>Verify on first call</td></tr>
+                    <tr><td>Stonepeak brings own Europe connections</td><td><span class="tag tag-med">MED</span></td><td>Move fast, add local value</td></tr>
+                    <tr><td>Equalbase too small for meaningful fees</td><td><span class="tag tag-low">LOW</span></td><td>$1.7B Sunway JV proves scale</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">7. Route to Deal</h2>
+            <div class="action-box">
+                <div class="action-title">📋 NEXT STEPS</div>
+                <ol style="margin-left: 20px; color: var(--text-light);">
+                    <li>LinkedIn connect: Christian Bischoff, Lee — <strong>This week</strong></li>
+                    <li>Draft intro email (Europe mandate + German tenant angle) — <strong>3 days</strong></li>
+                    <li>Prepare 3-5 UK logistics opportunities — <strong>1 week</strong></li>
+                    <li>Research BMW/VW UK logistics needs — <strong>1 week</strong></li>
+                    <li>Verify Europe expansion is active priority — <strong>On first call</strong></li>
+                </ol>
+            </div>
             
             <div class="card">
-                <div class="card-title">🌱 Sustainability Angle</div>
-                <p>Equalbase's Net Zero commitment + ESG focus aligns perfectly with UK institutional requirements. Makes UK market entry more attractive for them.</p>
+                <div class="card-title">✉️ Draft Email Subject</div>
+                <p style="font-family: monospace; background: var(--bg); padding: 12px; border-radius: 4px; margin-top: 8px;">
+                    UK logistics pipeline for Amberock's Europe expansion
+                </p>
             </div>
         </section>
 

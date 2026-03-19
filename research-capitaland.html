@@ -3,26 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CapitaLand Analysis | Courtenay Partners</title>
+    <title>CapitaLand Investment Analysis | Courtenay Partners</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #3B82F6;
-            --primary-light: #60A5FA;
-            --accent: #F59E0B;
-            --bg: #0B1120;
-            --bg-alt: #131B2E;
-            --card-bg: #1A2332;
-            --text: #F8FAFC;
-            --text-light: #94A3B8;
-            --text-muted: #64748B;
-            --border: #1E293B;
-            --success: #22C55E;
-            --warning: #F59E0B;
-            --danger: #EF4444;
-        }
+        :root { --primary: #3B82F6; --primary-light: #60A5FA; --accent: #F59E0B; --bg: #0B1120; --bg-alt: #131B2E; --card-bg: #1A2332; --text: #F8FAFC; --text-light: #94A3B8; --text-muted: #64748B; --border: #1E293B; --success: #22C55E; --warning: #F59E0B; --danger: #EF4444; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
         .site-nav { background: var(--card-bg); padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
@@ -31,18 +17,16 @@
         .site-nav-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; }
         .site-nav-links { display: flex; gap: 24px; }
         .site-nav-links a { color: var(--text-light); text-decoration: none; font-size: 14px; }
-        .site-nav-links a:hover { color: var(--primary); }
         .page { max-width: 1100px; margin: 0 auto; padding: 40px; }
         .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); text-decoration: none; font-size: 13px; margin-bottom: 24px; }
-        .back-link:hover { text-decoration: underline; }
         .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 20px; border-bottom: 2px solid var(--border); margin-bottom: 32px; }
         .branding { display: flex; align-items: center; gap: 12px; }
         .logo { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white; }
-        .company { font-size: 18px; font-weight: 600; color: var(--text); }
+        .company { font-size: 18px; font-weight: 600; }
         .doc-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
         .meta { text-align: right; font-size: 11px; color: var(--text-muted); }
         .confidential { display: inline-block; padding: 3px 10px; background: var(--danger); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; border-radius: 3px; margin-top: 6px; }
-        .cover { background: linear-gradient(135deg, #DC2626, #991B1B); color: white; padding: 40px; border-radius: 10px; margin-bottom: 32px; }
+        .cover { background: linear-gradient(135deg, #1e3a5f, #2c5282); color: white; padding: 40px; border-radius: 10px; margin-bottom: 32px; }
         .cover-title { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
         .cover-subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 24px; }
         .cover-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
@@ -51,7 +35,6 @@
         .cover-kpi-label { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
         .section { margin-bottom: 32px; }
         .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
-        .section-intro { color: var(--text-light); margin-bottom: 16px; }
         .card { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 16px; border-left: 4px solid var(--primary); }
         .card-title { font-weight: 600; font-size: 15px; color: var(--primary); margin-bottom: 12px; }
         table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
@@ -59,15 +42,16 @@
         td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
         tr:hover { background: var(--bg-alt); }
         .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
-        .tag-buyer { background: #22C55E; color: white; }
-        .tag-seller { background: #EF4444; color: white; }
-        .tag-merger { background: #F59E0B; color: white; }
-        .insight { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--success); }
-        .insight-title { font-weight: 700; color: var(--success); margin-bottom: 8px; }
+        .tag-high { background: #EF4444; color: white; }
+        .tag-med { background: #F59E0B; color: white; }
+        .tag-low { background: #22C55E; color: white; }
+        .tag-buy { background: #3B82F6; color: white; }
+        .tag-dev { background: #8B5CF6; color: white; }
+        .action-box { background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05)); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; padding: 20px; margin: 24px 0; }
+        .action-title { font-weight: 700; color: var(--success); margin-bottom: 12px; font-size: 16px; }
         .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
         .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 11px; }
-        .footer a { color: var(--primary); }
     </style>
 </head>
 <body>
@@ -94,7 +78,7 @@
                 </div>
             </div>
             <div class="meta">
-                <div>19 March 2026</div>
+                <div>19 March 2026 (Expanded)</div>
                 <div>Analyst: Howard</div>
                 <div class="confidential">Confidential</div>
             </div>
@@ -102,193 +86,152 @@
 
         <div class="cover">
             <div class="cover-title">CapitaLand Investment</div>
-            <div class="cover-subtitle">Singapore's Largest Real Asset Manager — Expansion Mode</div>
+            <div class="cover-subtitle">38+ UK Logistics Assets — £203.5M Development Pipeline — Active Buyer</div>
             <div class="cover-kpis">
                 <div class="cover-kpi">
-                    <div class="cover-kpi-value">S$120B</div>
-                    <div class="cover-kpi-label">FUM</div>
+                    <div class="cover-kpi-value">S$18.2B</div>
+                    <div class="cover-kpi-label">CLAR AUM</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">38+</div>
+                    <div class="cover-kpi-label">UK Logistics</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">£203.5M</div>
+                    <div class="cover-kpi-label">UK Dev Pipeline</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">5</div>
+                    <div class="cover-kpi-label">UK Data Centres</div>
                 </div>
                 <div class="cover-kpi">
                     <div class="cover-kpi-value">222</div>
-                    <div class="cover-kpi-label">Properties</div>
-                </div>
-                <div class="cover-kpi">
-                    <div class="cover-kpi-value">45</div>
-                    <div class="cover-kpi-label">Countries</div>
-                </div>
-                <div class="cover-kpi">
-                    <div class="cover-kpi-value">S$350M</div>
-                    <div class="cover-kpi-label">New UK Dev</div>
-                </div>
-                <div class="cover-kpi">
-                    <div class="cover-kpi-value">US$150B+</div>
-                    <div class="cover-kpi-label">Post-Merger</div>
+                    <div class="cover-kpi-label">Total Properties</div>
                 </div>
             </div>
         </div>
 
-        <div class="insight">
-            <div class="insight-title">🎯 Key Insight — BUYER not SELLER</div>
-            <div>CapitaLand is in <strong>expansion mode</strong>, actively developing UK logistics. They're a potential <strong>buy-side client</strong> for Courtenay Partners — we can source deals for their capital deployment.</div>
+        <div class="action-box">
+            <div class="action-title">🎯 CP OPPORTUNITY: BUY-SIDE SOURCING</div>
+            <p><strong>Angle:</strong> Off-market UK logistics deals, smaller lot sizes that big brokers miss</p>
+            <p><strong>Target:</strong> £30-80M deals in East Midlands / Golden Triangle</p>
+            <p><strong>Weakness:</strong> Well-covered by CBRE/JLL — need differentiation via off-market access</p>
+            <p style="margin-top: 12px;"><strong>Next Step:</strong> Identify CapitaLand UK team contacts via LinkedIn</p>
         </div>
 
         <section class="section">
-            <h2 class="section-title">1. Company Overview</h2>
-            <table>
-                <tbody>
-                    <tr><td><strong>FUM</strong></td><td>S$120B (as at Nov 2025)</td></tr>
-                    <tr><td><strong>Listed REITs</strong></td><td>6 (CLAR, CMT, CICT, CLCT, CIT, CLAS)</td></tr>
-                    <tr><td><strong>Countries</strong></td><td>45</td></tr>
-                    <tr><td><strong>Cities</strong></td><td>270+</td></tr>
-                    <tr><td><strong>Temasek stake</strong></td><td>54%</td></tr>
-                    <tr><td><strong>Strategy</strong></td><td><span class="tag tag-buyer">EXPANSION</span></td></tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">2. Merger with Mapletree</h2>
-            <p class="section-intro">WSJ reported merger discussions in November 2025. UBS says "higher probability" than market pricing (Jan 2026).</p>
+            <h2 class="section-title">1. UK Development Pipeline — £203.5M (Aug 2025)</h2>
+            <p style="color: var(--text-light); margin-bottom: 16px;">First UK logistics developments — construction 2026, completion 2027</p>
             
             <table>
                 <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>CapitaLand</th>
-                        <th>Mapletree</th>
-                        <th>Combined</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>AUM</strong></td>
-                        <td>S$120B</td>
-                        <td>S$78B</td>
-                        <td style="background: rgba(34,197,94,0.2);"><strong>US$150B+</strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Temasek</strong></td>
-                        <td>54%</td>
-                        <td>100%</td>
-                        <td>70%+</td>
-                    </tr>
-                    <tr>
-                        <td><strong>REITs</strong></td>
-                        <td>6</td>
-                        <td>4</td>
-                        <td>10</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="card">
-                <div class="card-title">💡 Implication for CP</div>
-                <p><strong>Post-merger = massive capital to deploy.</strong> Combined platform will need more deal flow. Could also trigger portfolio rationalization (overlapping assets to divest).</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">3. UK Portfolio — Expansion Mode</h2>
-            
-            <div class="card">
-                <div class="card-title">CapitaLand Ascendas REIT (CLAR) UK</div>
-                <p><strong>Properties:</strong> ~39 (38 logistics + 1 business park)</p>
-                <p><strong>Est. value:</strong> ~£2.6B (S$3.4B)</p>
-                <p><strong>Strategy:</strong> <span class="tag tag-buyer">ACTIVE EXPANSION</span></p>
-            </div>
-            
-            <h3 style="font-size: 14px; margin: 20px 0 12px;">New UK Logistics Development (Aug 2025)</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Project</th>
-                        <th>Location</th>
-                        <th>Size</th>
-                        <th>Completion</th>
-                    </tr>
+                    <tr><th>Project</th><th>Location</th><th>Properties</th><th>Land Cost</th><th>Total Investment</th><th>Status</th></tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>Manton Wood</strong></td>
-                        <td>East Midlands</td>
-                        <td>1 building</td>
-                        <td>2027</td>
+                        <td>Worksop, Nottinghamshire</td>
+                        <td>1</td>
+                        <td>£11.0M</td>
+                        <td>~£50M</td>
+                        <td><span class="tag tag-dev">DEV</span></td>
                     </tr>
                     <tr>
                         <td><strong>Towcester</strong></td>
-                        <td>Northamptonshire</td>
-                        <td>3 buildings</td>
-                        <td>2027</td>
+                        <td>Northampton West</td>
+                        <td>3</td>
+                        <td>£45.4M</td>
+                        <td>~£153M</td>
+                        <td><span class="tag tag-dev">DEV</span></td>
                     </tr>
                 </tbody>
             </table>
-            <p style="color: var(--text-light); font-size: 13px; margin-top: 8px;"><strong>Total investment:</strong> S$350M (£204M) for 1.46M sq ft — CLAR's first UK logistics development</p>
+            
+            <div class="card">
+                <div class="card-title">📊 Development Economics</div>
+                <p><strong>Total GFA:</strong> 135,600 sqm (1.46M sq ft)</p>
+                <p><strong>Total Investment:</strong> £203.5M</p>
+                <p><strong>Development Cost:</strong> £139/sq ft</p>
+                <p style="margin-top: 8px; color: var(--text-muted);">Single-storey, best-in-class logistics specification</p>
+            </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">4. CP Opportunity — Buy-Side Sourcing</h2>
+            <h2 class="section-title">2. Existing UK Portfolio</h2>
+            
+            <div class="two-col">
+                <div class="card">
+                    <div class="card-title">📦 Logistics (38+ assets)</div>
+                    <p><strong>Yorkshire & Humber</strong> — Multiple</p>
+                    <p><strong>North West England</strong> — Multiple</p>
+                    <p><strong>East Midlands</strong> — Strong presence</p>
+                    <p><strong>West Midlands</strong> — M6 corridor</p>
+                    <p><strong>South East England</strong> — Multiple</p>
+                    <p><strong>East of England</strong> — Multiple</p>
+                    <p style="margin-top: 12px; color: var(--text-muted);">All on freehold/virtual freehold land</p>
+                </div>
+                <div class="card">
+                    <div class="card-title">🖥️ Data Centres (5 assets)</div>
+                    <p><strong>The Chess Building</strong> — London, 31MW</p>
+                    <p style="font-size: 12px; color: var(--text-muted);">Acquired from Digital Realty for £125.1M</p>
+                    <p style="margin-top: 8px;"><strong>Mundells</strong> — Welwyn Garden City</p>
+                    <p style="font-size: 12px; color: var(--text-muted);">Colt DCS tenant</p>
+                    <p style="margin-top: 8px;"><strong>Prologis Park</strong> — Croydon</p>
+                    <p style="font-size: 12px; color: var(--text-muted);">Ex-Sentrum facility</p>
+                    <p style="margin-top: 8px;">+ 2 other London area facilities</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">3. Acquisition Appetite</h2>
             
             <table>
                 <thead>
-                    <tr>
-                        <th>Opportunity</th>
-                        <th>Description</th>
-                        <th>Fee Model</th>
-                    </tr>
+                    <tr><th>Criteria</th><th>Requirement</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>UK logistics deals</strong></td>
-                        <td>Source off-market logistics for CLAR expansion</td>
-                        <td>Origination fee (0.5-1%)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Development sites</strong></td>
-                        <td>After Manton Wood/Towcester, they'll want more</td>
-                        <td>Finder's fee</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Post-merger advisory</strong></td>
-                        <td>Identify divestment candidates from combined portfolio</td>
-                        <td>Transaction fee</td>
-                    </tr>
+                    <tr><td><strong>Type</strong></td><td>Logistics, data centres</td></tr>
+                    <tr><td><strong>Location</strong></td><td>East Midlands, Golden Triangle preferred</td></tr>
+                    <tr><td><strong>Size</strong></td><td>£20M-200M per asset</td></tr>
+                    <tr><td><strong>Tenure</strong></td><td>Freehold/virtual freehold</td></tr>
+                    <tr><td><strong>Quality</strong></td><td>Modern, Grade A specification</td></tr>
+                </tbody>
+            </table>
+            
+            <div class="card">
+                <div class="card-title">💡 CP Sweet Spot</div>
+                <p><strong>Target size:</strong> £30-80M — too small for big brokers to prioritize, right size for CLAR</p>
+                <p><strong>Target location:</strong> Near Manton Wood / Towcester developments</p>
+                <p><strong>Target type:</strong> Forward fund opportunities, development sites</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">4. Recent UK Deals</h2>
+            <table>
+                <thead>
+                    <tr><th>Year</th><th>Asset</th><th>Value</th><th>Type</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>2023</td><td>Chess Building DC</td><td>£125.1M</td><td>Data centre</td></tr>
+                    <tr><td>2025</td><td>Manton Wood land</td><td>£11.0M</td><td>Development site</td></tr>
+                    <tr><td>2025</td><td>Towcester land</td><td>£45.4M</td><td>Development site</td></tr>
                 </tbody>
             </table>
         </section>
 
         <section class="section">
-            <h2 class="section-title">5. Comparison to Other Targets</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Company</th>
-                        <th>Strategy</th>
-                        <th>CP Role</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>CDL</td>
-                        <td><span class="tag tag-seller">RECYCLING</span></td>
-                        <td>Sell-side advisory</td>
-                    </tr>
-                    <tr>
-                        <td>MEC / Mitsui</td>
-                        <td><span class="tag tag-seller">RECYCLING</span></td>
-                        <td>Sell-side advisory</td>
-                    </tr>
-                    <tr>
-                        <td>Hongkong Land</td>
-                        <td><span class="tag tag-buyer">EXPANSION</span></td>
-                        <td>Buy-side sourcing</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CapitaLand</strong></td>
-                        <td><span class="tag tag-buyer">EXPANSION</span></td>
-                        <td><strong>Buy-side sourcing</strong></td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2 class="section-title">5. Route to Deal</h2>
+            <div class="action-box">
+                <div class="action-title">📋 NEXT STEPS</div>
+                <ol style="margin-left: 20px; color: var(--text-light);">
+                    <li>Identify UK/Europe team contacts via LinkedIn — <strong>1 week</strong></li>
+                    <li>Prepare 3-5 UK logistics opportunities near East Midlands — <strong>2 weeks</strong></li>
+                    <li>Research forward fund terms typical for CLAR — <strong>1 week</strong></li>
+                    <li>Draft intro email highlighting off-market capability — <strong>After contacts ID'd</strong></li>
+                </ol>
+            </div>
         </section>
 
         <footer class="footer">
