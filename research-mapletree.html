@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapletree Analysis | Courtenay Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #3B82F6; --primary-light: #60A5FA; --accent: #F59E0B; --bg: #0B1120; --bg-alt: #131B2E; --card-bg: #1A2332; --text: #F8FAFC; --text-light: #94A3B8; --text-muted: #64748B; --border: #1E293B; --success: #22C55E; --warning: #F59E0B; --danger: #EF4444; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
+        .site-nav { background: var(--card-bg); padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .site-nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+        .site-nav-logo { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: white; }
+        .site-nav-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; }
+        .site-nav-links { display: flex; gap: 24px; }
+        .site-nav-links a { color: var(--text-light); text-decoration: none; font-size: 14px; }
+        .site-nav-links a:hover { color: var(--primary); }
+        .page { max-width: 1100px; margin: 0 auto; padding: 40px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); text-decoration: none; font-size: 13px; margin-bottom: 24px; }
+        .back-link:hover { text-decoration: underline; }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 20px; border-bottom: 2px solid var(--border); margin-bottom: 32px; }
+        .branding { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white; }
+        .company { font-size: 18px; font-weight: 600; color: var(--text); }
+        .doc-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .meta { text-align: right; font-size: 11px; color: var(--text-muted); }
+        .confidential { display: inline-block; padding: 3px 10px; background: var(--danger); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; border-radius: 3px; margin-top: 6px; }
+        .cover { background: linear-gradient(135deg, #059669, #047857); color: white; padding: 40px; border-radius: 10px; margin-bottom: 32px; }
+        .cover-title { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+        .cover-subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 24px; }
+        .cover-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+        .cover-kpi { text-align: center; padding: 16px 8px; background: rgba(255,255,255,0.1); border-radius: 6px; }
+        .cover-kpi-value { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; }
+        .cover-kpi-label { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+        .section { margin-bottom: 32px; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+        .card { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 16px; border-left: 4px solid var(--primary); }
+        .card-title { font-weight: 600; font-size: 15px; color: var(--primary); margin-bottom: 12px; }
+        .card-sell { border-left-color: var(--danger); }
+        .card-buy { border-left-color: var(--success); }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+        th { background: var(--card-bg); color: var(--text); padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); }
+        td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+        tr:hover { background: var(--bg-alt); }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
+        .tag-sell { background: #EF4444; color: white; }
+        .tag-buy { background: #22C55E; color: white; }
+        .insight { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--accent); }
+        .insight-title { font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 11px; }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="index.html" class="site-nav-brand">
+            <div class="site-nav-logo">CP</div>
+            <span class="site-nav-title">Courtenay Partners</span>
+        </a>
+        <div class="site-nav-links">
+            <a href="index.html#overview">Overview</a>
+            <a href="index.html#research">Research</a>
+            <a href="index.html#pipeline">Pipeline</a>
+        </div>
+    </nav>
+    <div class="page">
+        <a href="index.html#research" class="back-link">← Back to Research</a>
+        
+        <header class="header">
+            <div class="branding">
+                <div class="logo">CP</div>
+                <div>
+                    <div class="company">Courtenay Partners</div>
+                    <div class="doc-type">Strategic Analysis</div>
+                </div>
+            </div>
+            <div class="meta">
+                <div>19 March 2026</div>
+                <div>Analyst: Howard</div>
+                <div class="confidential">Confidential</div>
+            </div>
+        </header>
+
+        <div class="cover">
+            <div class="cover-title">Mapletree Investments</div>
+            <div class="cover-subtitle">100% Temasek — Dual Strategy: Selling PBSA, Buying Logistics</div>
+            <div class="cover-kpis">
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">S$78B</div>
+                    <div class="cover-kpi-label">AUM</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">£583M</div>
+                    <div class="cover-kpi-label">UK PBSA for Sale</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">€315M</div>
+                    <div class="cover-kpi-label">New EU Logistics</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">262</div>
+                    <div class="cover-kpi-label">MUSEL Assets</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight">
+            <div class="insight-title">🎯 Dual Opportunity</div>
+            <div>Mapletree is <strong>BOTH selling and buying</strong>: Divesting £583M UK PBSA portfolio while expanding into UK/EU logistics. <strong>Two separate fee opportunities</strong> for Courtenay Partners.</div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">1. UK PBSA — FOR SALE</h2>
+            <div class="card card-sell">
+                <div class="card-title" style="color: #EF4444;">🏠 Student Housing Portfolio <span class="tag tag-sell">SELLING</span></div>
+                <p><strong>Properties:</strong> 24</p>
+                <p><strong>Beds:</strong> 4,844</p>
+                <p><strong>Guide price:</strong> £583M (~S$770M)</p>
+                <p><strong>Status:</strong> Marketing (April 2025)</p>
+                <p><strong>Locations:</strong> UK-wide, near Russell Group universities</p>
+                <p style="margin-top: 12px; color: var(--text-light);"><strong>Why selling:</strong> Part of S$6.2B global PBSA portfolio restructuring — shifting capital to logistics.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">2. UK/EU Logistics — EXPANDING</h2>
+            <div class="card card-buy">
+                <div class="card-title" style="color: #22C55E;">📦 New Logistics Acquisitions <span class="tag tag-buy">BUYING</span></div>
+                <table>
+                    <thead>
+                        <tr><th>Date</th><th>Asset</th><th>Location</th><th>Value</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Jan 2025</td><td><strong>Derby DC1</strong></td><td>UK (East Midlands)</td><td>Part of €315M</td></tr>
+                        <tr><td>Jan 2025</td><td>10 warehouses</td><td>Spain</td><td>Part of €315M</td></tr>
+                        <tr><td>Dec 2025</td><td>Logistics facility</td><td>Netherlands</td><td>€32M</td></tr>
+                        <tr><td>Mar 2026</td><td>Park 15</td><td>Netherlands</td><td>TBD</td></tr>
+                    </tbody>
+                </table>
+                <p style="color: var(--text-light);">Seeding second European logistics fund after MUSEL success (200 US + 62 EU assets).</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">3. MUSEL Fund — The Template</h2>
+            <table>
+                <tbody>
+                    <tr><td><strong>Name</strong></td><td>Mapletree US & EU Logistics Private Trust</td></tr>
+                    <tr><td><strong>US assets</strong></td><td>200</td></tr>
+                    <tr><td><strong>EU assets</strong></td><td>62 (across 20 cities)</td></tr>
+                    <tr><td><strong>Status</strong></td><td>Strong performance since 2019</td></tr>
+                    <tr><td><strong>Next fund</strong></td><td>European logistics-focused, launching after scale achieved</td></tr>
+                </tbody>
+            </table>
+            <div class="card">
+                <div class="card-title">💬 CEO Quote</div>
+                <p><em>"We are excited to expand our footprint into the UK as well as in Europe."</em><br>— Ralph van der Beek, CEO Commercial & Logistics Europe</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">4. CP Opportunity — Both Sides</h2>
+            <div class="two-col">
+                <div class="card card-sell">
+                    <div class="card-title" style="color: #EF4444;">Sell-Side: PBSA</div>
+                    <p><strong>Asset:</strong> £583M UK PBSA portfolio</p>
+                    <p><strong>Role:</strong> Buyer introduction</p>
+                    <p><strong>Fee:</strong> 0.5-1% transaction</p>
+                    <p style="margin-top: 8px;"><span class="tag tag-sell">HIGH PRIORITY</span></p>
+                </div>
+                <div class="card card-buy">
+                    <div class="card-title" style="color: #22C55E;">Buy-Side: Logistics</div>
+                    <p><strong>Target:</strong> UK logistics assets</p>
+                    <p><strong>Role:</strong> Deal sourcing</p>
+                    <p><strong>Fee:</strong> Origination fee</p>
+                    <p style="margin-top: 8px;"><span class="tag tag-buy">HIGH PRIORITY</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">5. CapitaLand Merger Impact</h2>
+            <p style="color: var(--text-light); margin-bottom: 16px;">If merger proceeds (UBS says "higher probability"), expect:</p>
+            <ul style="color: var(--text-light); margin-left: 20px;">
+                <li>Combined PBSA portfolios → rationalization</li>
+                <li>Logistics portfolio consolidation</li>
+                <li>UK operations restructuring</li>
+                <li><strong>More advisory opportunities</strong></li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>Prepared by Courtenay Partners • 19 March 2026 • Confidential</p>
+        </footer>
+    </div>
+</body>
+</html>
