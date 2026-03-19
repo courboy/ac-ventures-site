@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equalbase Analysis | Courtenay Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #3B82F6; --primary-light: #60A5FA; --accent: #F59E0B; --bg: #0B1120; --bg-alt: #131B2E; --card-bg: #1A2332; --text: #F8FAFC; --text-light: #94A3B8; --text-muted: #64748B; --border: #1E293B; --success: #22C55E; --warning: #F59E0B; --danger: #EF4444; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
+        .site-nav { background: var(--card-bg); padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .site-nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+        .site-nav-logo { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: white; }
+        .site-nav-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; }
+        .site-nav-links { display: flex; gap: 24px; }
+        .site-nav-links a { color: var(--text-light); text-decoration: none; font-size: 14px; }
+        .site-nav-links a:hover { color: var(--primary); }
+        .page { max-width: 1100px; margin: 0 auto; padding: 40px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); text-decoration: none; font-size: 13px; margin-bottom: 24px; }
+        .back-link:hover { text-decoration: underline; }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 20px; border-bottom: 2px solid var(--border); margin-bottom: 32px; }
+        .branding { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white; }
+        .company { font-size: 18px; font-weight: 600; color: var(--text); }
+        .doc-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .meta { text-align: right; font-size: 11px; color: var(--text-muted); }
+        .confidential { display: inline-block; padding: 3px 10px; background: var(--danger); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; border-radius: 3px; margin-top: 6px; }
+        .cover { background: linear-gradient(135deg, #7C3AED, #5B21B6); color: white; padding: 40px; border-radius: 10px; margin-bottom: 32px; }
+        .cover-title { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+        .cover-subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 24px; }
+        .cover-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+        .cover-kpi { text-align: center; padding: 16px 8px; background: rgba(255,255,255,0.1); border-radius: 6px; }
+        .cover-kpi-value { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; }
+        .cover-kpi-label { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+        .section { margin-bottom: 32px; }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+        .card { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 16px; border-left: 4px solid var(--primary); }
+        .card-title { font-weight: 600; font-size: 15px; color: var(--primary); margin-bottom: 12px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+        th { background: var(--card-bg); color: var(--text); padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); }
+        td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+        tr:hover { background: var(--bg-alt); }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
+        .tag-buy { background: #22C55E; color: white; }
+        .tag-tenant { background: #3B82F6; color: white; }
+        .insight { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--accent); }
+        .insight-title { font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        @media (max-width: 768px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 11px; }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="index.html" class="site-nav-brand">
+            <div class="site-nav-logo">CP</div>
+            <span class="site-nav-title">Courtenay Partners</span>
+        </a>
+        <div class="site-nav-links">
+            <a href="index.html#overview">Overview</a>
+            <a href="index.html#research">Research</a>
+            <a href="index.html#pipeline">Pipeline</a>
+        </div>
+    </nav>
+    <div class="page">
+        <a href="index.html#research" class="back-link">← Back to Research</a>
+        
+        <header class="header">
+            <div class="branding">
+                <div class="logo">CP</div>
+                <div>
+                    <div class="company">Courtenay Partners</div>
+                    <div class="doc-type">Strategic Analysis</div>
+                </div>
+            </div>
+            <div class="meta">
+                <div>19 March 2026</div>
+                <div>Analyst: Howard</div>
+                <div class="confidential">Confidential</div>
+            </div>
+        </header>
+
+        <div class="cover">
+            <div class="cover-title">Equalbase</div>
+            <div class="cover-subtitle">Stonepeak-Backed Sustainable Logistics — Targeting Europe Expansion</div>
+            <div class="cover-kpis">
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">$72B</div>
+                    <div class="cover-kpi-label">Stonepeak AUM</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">$3B+</div>
+                    <div class="cover-kpi-label">APAC Committed</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">13</div>
+                    <div class="cover-kpi-label">Projects</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">3</div>
+                    <div class="cover-kpi-label">Countries</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">ZERO</div>
+                    <div class="cover-kpi-label">UK/EU Assets</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight">
+            <div class="insight-title">🎯 Key Opportunity — Europe Expansion</div>
+            <div>Equalbase explicitly targets <strong>Europe</strong> for Amberock Fund expansion but has <strong>ZERO UK/EU presence</strong>. Stonepeak has $3B+ APAC commitment. Blue-chip tenants (BMW, VW) may need UK facilities. <strong>CP can be their UK origination partner.</strong></div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">1. Investment Structure</h2>
+            <div class="card">
+                <div class="card-title">Stonepeak → Equalbase → Northmod → Amberock</div>
+                <p><strong>Stonepeak Partners</strong> ($72B AUM) — US alternative investment firm</p>
+                <p style="margin-top: 8px;">↓ Strategic partnership (Sept 2022)</p>
+                <p style="margin-top: 8px;"><strong>Equalbase</strong> — Singapore developer/operator</p>
+                <p style="margin-top: 8px;">↓ Manages</p>
+                <p style="margin-top: 8px;"><strong>Northmod</strong> — Investment manager</p>
+                <p style="margin-top: 8px;">↓ Oversees</p>
+                <p style="margin-top: 8px;"><strong>Amberock Fund</strong> — Sustainable logistics (Asia + Europe target)</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">2. Portfolio — 13 Projects</h2>
+            
+            <h3 style="font-size: 14px; margin: 20px 0 12px;">🇲🇾 Malaysia (8)</h3>
+            <table>
+                <thead>
+                    <tr><th>Project</th><th>Type</th><th>Tenant</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>103° Free Commercial Zone</td><td>Built to Lease</td><td>—</td></tr>
+                    <tr><td>Valdor I & II</td><td>Built to Lease</td><td>—</td></tr>
+                    <tr><td><strong>PTP</strong></td><td>Built to Suit</td><td><span class="tag tag-tenant">Volkswagen</span></td></tr>
+                    <tr><td>PTP II</td><td>Built to Lease</td><td>—</td></tr>
+                    <tr><td><strong>Senai</strong></td><td>Built to Suit</td><td><span class="tag tag-tenant">BMW</span></td></tr>
+                    <tr><td><strong>Senai III</strong></td><td>Built to Suit</td><td><span class="tag tag-tenant">Rohde & Schwarz</span></td></tr>
+                </tbody>
+            </table>
+            
+            <h3 style="font-size: 14px; margin: 20px 0 12px;">🇸🇬 Singapore (2)</h3>
+            <table>
+                <tbody>
+                    <tr><td>Changi Logistics Centre</td><td>Built to Lease</td><td>Near airport</td></tr>
+                    <tr><td>Tuas Bay Drive</td><td>Built to Lease</td><td>Industrial zone</td></tr>
+                </tbody>
+            </table>
+            
+            <h3 style="font-size: 14px; margin: 20px 0 12px;">🇰🇷 South Korea (3)</h3>
+            <table>
+                <tbody>
+                    <tr><td>Yangju</td><td>Built to Suit</td><td>ACT&CORE</td></tr>
+                    <tr><td>Icheon Baeksa</td><td>Built to Lease</td><td>—</td></tr>
+                    <tr><td>Iljuk</td><td>Built to Suit</td><td>TBC</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">3. Expansion Strategy</h2>
+            <div class="card">
+                <div class="card-title">💬 From Website</div>
+                <p><em>"Northmod invests in real estate and clean technology, leveraging its network to identify investment opportunities in key markets across <strong>APAC and Europe</strong>."</em></p>
+            </div>
+            
+            <h3 style="font-size: 14px; margin: 20px 0 12px;">What They're Looking For</h3>
+            <ul style="color: var(--text-light); margin-left: 20px;">
+                <li>Sustainable logistics facilities</li>
+                <li>E-commerce, FMCG, automotive, pharma, retail, industrial</li>
+                <li>Built-to-suit for blue-chip tenants</li>
+                <li>Long-term income assets</li>
+                <li>ESG-compliant buildings</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">4. CP Opportunity</h2>
+            <table>
+                <thead>
+                    <tr><th>Opportunity</th><th>Description</th><th>Priority</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>UK deal sourcing</strong></td>
+                        <td>Source sustainable logistics for Amberock Fund</td>
+                        <td><span class="tag tag-buy">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tenant introductions</strong></td>
+                        <td>BMW/VW may need UK facilities — connect to Equalbase</td>
+                        <td><span class="tag tag-buy">MEDIUM</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Europe market entry</strong></td>
+                        <td>Advisory on UK/EU market structure</td>
+                        <td><span class="tag tag-buy">MEDIUM</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="card">
+                <div class="card-title">🌱 Sustainability Angle</div>
+                <p>Equalbase's Net Zero commitment + ESG focus aligns perfectly with UK institutional requirements. Makes UK market entry more attractive for them.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Prepared by Courtenay Partners • 19 March 2026 • Confidential</p>
+        </footer>
+    </div>
+</body>
+</html>
