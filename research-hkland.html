@@ -8,135 +8,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #1e3a5f;
-            --primary-light: #2c5282;
-            --accent: #c9a227;
-            --bg: #0B1120;
-            --bg-alt: #131B2E;
-            --text: #F8FAFC;
-            --text-light: #94A3B8;
-            --text-muted: #64748B;
-            --border: #1E293B;
-            --success: #38a169;
-            --warning: #d69e2e;
-            --danger: #e53e3e;
-        }
+        :root { --primary: #3B82F6; --primary-light: #60A5FA; --accent: #F59E0B; --bg: #0B1120; --bg-alt: #131B2E; --card-bg: #1A2332; --text: #F8FAFC; --text-light: #94A3B8; --text-muted: #64748B; --border: #1E293B; --success: #22C55E; --warning: #F59E0B; --danger: #EF4444; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            font-size: 14px;
-        }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
+        .site-nav { background: var(--card-bg); padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .site-nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+        .site-nav-logo { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: white; }
+        .site-nav-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; }
+        .site-nav-links { display: flex; gap: 24px; }
+        .site-nav-links a { color: var(--text-light); text-decoration: none; font-size: 14px; }
         .page { max-width: 1100px; margin: 0 auto; padding: 40px; }
-        
-        .header {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            padding-bottom: 20px; border-bottom: 3px solid var(--primary); margin-bottom: 32px;
-        }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); text-decoration: none; font-size: 13px; margin-bottom: 24px; }
+        .header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 20px; border-bottom: 2px solid var(--border); margin-bottom: 32px; }
         .branding { display: flex; align-items: center; gap: 12px; }
-        .logo {
-            width: 44px; height: 44px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 6px; display: flex; align-items: center; justify-content: center;
-            font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white;
-        }
-        .company { font-size: 18px; font-weight: 600; color: var(--primary); }
+        .logo { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white; }
+        .company { font-size: 18px; font-weight: 600; }
         .doc-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
         .meta { text-align: right; font-size: 11px; color: var(--text-muted); }
-        .confidential {
-            display: inline-block; padding: 3px 10px; background: var(--danger); color: white;
-            font-size: 9px; font-weight: 700; text-transform: uppercase; border-radius: 3px; margin-top: 6px;
-        }
-        
-        .cover {
-            background: linear-gradient(135deg, #1e3a5f, #2c5282);
-            color: white; padding: 40px; border-radius: 10px; margin-bottom: 32px;
-        }
+        .confidential { display: inline-block; padding: 3px 10px; background: var(--danger); color: white; font-size: 9px; font-weight: 700; text-transform: uppercase; border-radius: 3px; margin-top: 6px; }
+        .cover { background: linear-gradient(135deg, #1e3a5f, #2c5282); color: white; padding: 40px; border-radius: 10px; margin-bottom: 32px; }
         .cover-title { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 6px; }
         .cover-subtitle { font-size: 16px; opacity: 0.9; margin-bottom: 24px; }
         .cover-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
-        .cover-kpi {
-            text-align: center; padding: 16px 8px; background: rgba(255,255,255,0.1); border-radius: 6px;
-        }
+        .cover-kpi { text-align: center; padding: 16px 8px; background: rgba(255,255,255,0.1); border-radius: 6px; }
         .cover-kpi-value { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; }
         .cover-kpi-label { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
-        
         .section { margin-bottom: 32px; }
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600;
-            color: var(--primary); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border);
-        }
-        .section-intro { color: var(--text-light); margin-bottom: 16px; }
-        
-        .card {
-            background: #1A2332; border-radius: 8px; padding: 20px; margin-bottom: 16px;
-            border-left: 4px solid var(--primary);
-        }
+        .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+        .card { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 16px; border-left: 4px solid var(--primary); }
         .card-title { font-weight: 600; font-size: 15px; color: var(--primary); margin-bottom: 12px; }
-        
         table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
-        th { 
-            background: var(--primary); color: white; padding: 10px 12px; text-align: left;
-            font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
-        }
+        th { background: var(--card-bg); color: var(--text); padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); }
         td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-        tr:hover { background: #1A2332; }
-        
-        .tag {
-            display: inline-block; padding: 3px 10px; border-radius: 4px;
-            font-size: 10px; font-weight: 600; text-transform: uppercase;
-        }
-        .tag-high { background: #c6f6d5; color: #276749; }
-        .tag-medium { background: #fef3c7; color: #d97706; }
-        .tag-low { background: #fed7d7; color: #c53030; }
-        .tag-none { background: #e2e8f0; color: #4a5568; }
-        
-        .insight {
-            background: linear-gradient(135deg, #c6f6d5, #9ae6b4); border-radius: 8px;
-            padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--success);
-        }
-        .insight-title { font-weight: 700; color: var(--primary); margin-bottom: 8px; }
-        
+        tr:hover { background: var(--bg-alt); }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 10px; font-weight: 600; text-transform: uppercase; }
+        .tag-high { background: #EF4444; color: white; }
+        .tag-med { background: #F59E0B; color: white; }
+        .tag-low { background: #22C55E; color: white; }
+        .tag-buy { background: #3B82F6; color: white; }
+        .insight { background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--success); }
+        .insight-title { font-weight: 700; color: var(--success); margin-bottom: 8px; }
+        .action-box { background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(34,197,94,0.05)); border: 1px solid rgba(34,197,94,0.3); border-radius: 8px; padding: 20px; margin: 24px 0; }
+        .action-title { font-weight: 700; color: var(--success); margin-bottom: 12px; font-size: 16px; }
         .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        @media (max-width: 768px) { 
-            .two-col, .three-col { grid-template-columns: 1fr; } 
-        }
-        
-        .footer {
-            margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--border);
-            text-align: center; color: var(--text-muted); font-size: 11px;
-        }
-        
-        .back-link {
-            display: inline-flex; align-items: center; gap: 6px;
-            color: var(--primary); text-decoration: none; font-size: 13px; margin-bottom: 24px;
-        }
-        .back-link:hover { text-decoration: underline; }
-
-        .region-card {
-            background: #1A2332; border-radius: 8px; padding: 16px; text-align: center;
-        }
-        .region-flag { font-size: 28px; margin-bottom: 8px; }
-        .region-name { font-weight: 600; color: var(--primary); margin-bottom: 4px; }
-        .region-value { font-size: 20px; font-weight: 700; color: var(--text); }
-        .region-detail { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+        @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 11px; }
     </style>
 </head>
-<style>
-.site-nav{background:#1A2332;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1E293B;position:sticky;top:0;z-index:100}
-.site-nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#F8FAFC}
-.site-nav-logo{width:36px;height:36px;background:linear-gradient(135deg,#3B82F6,#60A5FA);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:Space Grotesk,sans-serif;font-weight:700;font-size:14px;color:white}
-.site-nav-title{font-family:Space Grotesk,sans-serif;font-weight:600;font-size:16px}
-.site-nav-links{display:flex;gap:24px}
-.site-nav-links a{color:#94A3B8;text-decoration:none;font-size:14px}
-.site-nav-links a:hover{color:#3B82F6}
-</style>
 <body>
-<nav class="site-nav"><a href="index.html" class="site-nav-brand"><div class="site-nav-logo">CP</div><span class="site-nav-title">Courtenay Partners</span></a><div class="site-nav-links"><a href="index.html#overview">Overview</a><a href="index.html#research">Research</a><a href="index.html#pipeline">Pipeline</a></div></nav>
+    <nav class="site-nav">
+        <a href="index.html" class="site-nav-brand">
+            <div class="site-nav-logo">CP</div>
+            <span class="site-nav-title">Courtenay Partners</span>
+        </a>
+        <div class="site-nav-links">
+            <a href="index.html#overview">Overview</a>
+            <a href="index.html#research">Research</a>
+            <a href="index.html#pipeline">Pipeline</a>
+        </div>
+    </nav>
     <div class="page">
         <a href="index.html#research" class="back-link">← Back to Research</a>
         
@@ -149,7 +79,7 @@
                 </div>
             </div>
             <div class="meta">
-                <div>19 March 2026</div>
+                <div>19 March 2026 (Expanded)</div>
                 <div>Analyst: Howard</div>
                 <div class="confidential">Confidential</div>
             </div>
@@ -157,23 +87,23 @@
 
         <div class="cover">
             <div class="cover-title">Hongkong Land (置地公司)</div>
-            <div class="cover-subtitle">Strategic Vision 2035 — Asia's Gateway Cities</div>
+            <div class="cover-subtitle">S$6.8B Deployment Gap — ZERO UK/AU Exposure — Adam Has CIO Contact</div>
             <div class="cover-kpis">
                 <div class="cover-kpi">
-                    <div class="cover-kpi-value">US$35B</div>
-                    <div class="cover-kpi-label">Gross Assets</div>
-                </div>
-                <div class="cover-kpi">
-                    <div class="cover-kpi-value">US$100B</div>
-                    <div class="cover-kpi-label">2035 AUM Target</div>
+                    <div class="cover-kpi-value">US$22.8B</div>
+                    <div class="cover-kpi-label">HK Central</div>
                 </div>
                 <div class="cover-kpi">
                     <div class="cover-kpi-value">S$8.2B</div>
-                    <div class="cover-kpi-label">Singapore Fund</div>
+                    <div class="cover-kpi-label">SCPREF Fund</div>
+                </div>
+                <div class="cover-kpi">
+                    <div class="cover-kpi-value">S$6.8B</div>
+                    <div class="cover-kpi-label">To Deploy</div>
                 </div>
                 <div class="cover-kpi">
                     <div class="cover-kpi-value">US$5.8B</div>
-                    <div class="cover-kpi-label">China Wind-Down</div>
+                    <div class="cover-kpi-label">China Recycling</div>
                 </div>
                 <div class="cover-kpi">
                     <div class="cover-kpi-value">ZERO</div>
@@ -182,308 +112,128 @@
             </div>
         </div>
 
-        <div class="insight">
-            <div class="insight-title">🎯 Key Opportunity</div>
-            <div>Hongkong Land has <strong>ZERO UK/Australia exposure</strong> but is targeting "Asia's gateway cities" with US$5.8B recycling from China. They need <strong>deal origination partners</strong> for new markets. Adam has a direct relationship with their CIO (Michelle Ling).</div>
+        <div class="action-box">
+            <div class="action-title">🎯 ROUTE TO DEAL</div>
+            <p><strong>Contact:</strong> Michelle Ling (CIO) — Adam's direct contact from Japan trip</p>
+            <p><strong>Pitch:</strong> Source Singapore CBD/Orchard acquisitions for SCPREF + UK/AU market entry</p>
+            <p><strong>Capital:</strong> S$6.8B deployment gap (S$15B target - S$8.2B current)</p>
+            <p style="margin-top: 12px;"><strong>Next Step:</strong> Email Michelle re: SCPREF acquisition pipeline this week</p>
         </div>
 
         <section class="section">
-            <h2 class="section-title">1. Strategic Vision 2035</h2>
-            <p class="section-intro">Announced October 2024 — major pivot from developer to fund manager.</p>
+            <h2 class="section-title">1. Hong Kong Central Portfolio — US$22.8B</h2>
+            <p style="color: var(--text-light); margin-bottom: 16px;">12 interconnected buildings | 4.8M sq ft | These are generational assets — NOT for sale.</p>
             
             <table>
                 <thead>
-                    <tr>
-                        <th>Element</th>
-                        <th>Target</th>
-                        <th>Current</th>
-                    </tr>
+                    <tr><th>Building</th><th>NLA (sq ft)</th><th>Est. Value</th><th>Notes</th><th>Divestment</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Focus</strong></td>
-                        <td>Ultra-premium integrated commercial</td>
-                        <td>Mixed (office, retail, residential)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>AUM</strong></td>
-                        <td>US$100 billion</td>
-                        <td>~US$35 billion</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Geography</strong></td>
-                        <td>Asia's gateway cities</td>
-                        <td>HK, Singapore, China</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Capital Source</strong></td>
-                        <td>Third-party + recycling</td>
-                        <td>Balance sheet</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Build-to-Sell</strong></td>
-                        <td>Exit</td>
-                        <td>Winding down (US$5.8B)</td>
-                    </tr>
+                    <tr><td><strong>One Exchange Square</strong></td><td>600,000</td><td>US$2.5B</td><td>HKEX bought top 9 floors @ HK$42,850/sf</td><td><span class="tag tag-low">LOW</span></td></tr>
+                    <tr><td><strong>Two/Three Exchange Square</strong></td><td>1,000,000</td><td>US$3.5B</td><td>Premium Central</td><td><span class="tag tag-low">LOW</span></td></tr>
+                    <tr><td><strong>Jardine House</strong></td><td>696,000</td><td>US$2.5B</td><td>Iconic 52-storey tower</td><td><span class="tag tag-low">LOW</span></td></tr>
+                    <tr><td><strong>Chater House</strong></td><td>438,500</td><td>US$1.8B</td><td>Prime Central</td><td><span class="tag tag-low">LOW</span></td></tr>
+                    <tr><td><strong>Prince's Building</strong></td><td>350,000</td><td>US$1.5B</td><td>Office + luxury retail</td><td><span class="tag tag-low">LOW</span></td></tr>
+                    <tr><td><strong>Alexandra House</strong></td><td>350,000</td><td>US$1.2B</td><td>34 storeys</td><td><span class="tag tag-low">LOW</span></td></tr>
+                    <tr><td><strong>LANDMARK Complex</strong></td><td>800,000</td><td>US$4.0B</td><td>US$1B transformation underway</td><td><span class="tag tag-low">LOW</span></td></tr>
                 </tbody>
             </table>
             
             <div class="card">
-                <div class="card-title">💬 CEO Quote</div>
-                <p><em>"Where the finance and tech bros all want to be, we want to be."</em> — Michael Smith, CEO (ex-Mapletree)</p>
+                <div class="card-title">📊 Valuation Benchmark (HKEX Deal Apr 2025)</div>
+                <p>147,025 sq ft in One Exchange Square sold to HKEX for HK$6.3B</p>
+                <p><strong>= HK$42,850/sq ft = US$5,500/sq ft</strong></p>
+                <p style="margin-top: 8px; color: var(--text-muted);">This benchmarks Central Grade A office value.</p>
             </div>
         </section>
 
         <section class="section">
-            <h2 class="section-title">2. Portfolio by Region</h2>
-            <div class="three-col" style="margin-bottom: 24px;">
-                <div class="region-card">
-                    <div class="region-flag">🇭🇰</div>
-                    <div class="region-name">Hong Kong</div>
-                    <div class="region-value">US$22.8B</div>
-                    <div class="region-detail">65% of PBIT • Central Portfolio</div>
-                </div>
-                <div class="region-card">
-                    <div class="region-flag">🇸🇬</div>
-                    <div class="region-name">Singapore</div>
-                    <div class="region-value">S$8.2B</div>
-                    <div class="region-detail">13% of PBIT • SCPREF Fund</div>
-                </div>
-                <div class="region-card">
-                    <div class="region-flag">🇨🇳</div>
-                    <div class="region-name">China</div>
-                    <div class="region-value">US$5.8B</div>
-                    <div class="region-detail">22% of PBIT • Winding Down</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">3. Singapore Fund (SCPREF)</h2>
-            <p class="section-intro">Launched February 2026 — Singapore's largest commercial real estate private fund.</p>
+            <h2 class="section-title">2. Singapore SCPREF Fund — S$8.2B</h2>
+            <p style="color: var(--text-light); margin-bottom: 16px;">Launched Feb 2026 | Target S$15B | <strong>S$6.8B deployment gap</strong></p>
             
             <table>
                 <thead>
-                    <tr>
-                        <th>Asset</th>
-                        <th>Interest</th>
-                        <th>Location</th>
-                        <th>Notes</th>
-                    </tr>
+                    <tr><th>Asset</th><th>Interest</th><th>NLA (sq ft)</th><th>Est. Value</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Asia Square Tower 1</strong></td>
-                        <td>100%</td>
-                        <td>Marina Bay</td>
-                        <td>43 storeys, prime CBD</td>
-                    </tr>
-                    <tr>
-                        <td><strong>MBFC Tower 1 & 2</strong></td>
-                        <td>33.3%</td>
-                        <td>Marina Bay</td>
-                        <td>Marina Bay Financial Centre</td>
-                    </tr>
-                    <tr>
-                        <td><strong>One Raffles Quay</strong></td>
-                        <td>33.3%</td>
-                        <td>CBD</td>
-                        <td>Premium office tower</td>
-                    </tr>
-                    <tr>
-                        <td><strong>One Raffles Link</strong></td>
-                        <td>100%</td>
-                        <td>CBD</td>
-                        <td>MRT connected</td>
-                    </tr>
+                    <tr><td><strong>Asia Square Tower 1</strong></td><td>100%</td><td>1,200,000</td><td>S$3.5B</td></tr>
+                    <tr><td><strong>MBFC Tower 1</strong></td><td>33.3%</td><td>400,000 (attr)</td><td>S$1.2B (attr)</td></tr>
+                    <tr><td><strong>MBFC Tower 2</strong></td><td>33.3%</td><td>400,000 (attr)</td><td>S$1.2B (attr)</td></tr>
+                    <tr><td><strong>One Raffles Quay</strong></td><td>33.3%</td><td>350,000 (attr)</td><td>S$1.0B (attr)</td></tr>
+                    <tr><td><strong>One Raffles Link</strong></td><td>100%</td><td>250,000</td><td>S$800M</td></tr>
                 </tbody>
             </table>
             
+            <div class="card">
+                <div class="card-title">🎯 SCPREF Acquisition Mandate</div>
+                <p><em>"Acquire additional high-quality, income-producing commercial assets in Singapore's <strong>Central Business District</strong> and <strong>Orchard Road District</strong>."</em></p>
+                <p style="margin-top: 12px;"><strong>Investors:</strong> QIA (Qatar), APG (Dutch pension)</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">3. Acquisition Targets to Source</h2>
+            <p style="color: var(--text-light); margin-bottom: 16px;">These are assets we can help them acquire:</p>
+            
+            <table>
+                <thead>
+                    <tr><th>Target</th><th>Owner</th><th>Est. Value</th><th>Why It Fits</th><th>Likelihood</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Suntec City (partial)</strong></td><td>Suntec REIT</td><td>S$1.5B+</td><td>CBD, may seek JV</td><td><span class="tag tag-med">MED</span></td></tr>
+                    <tr><td><strong>Guoco Tower (partial)</strong></td><td>GuocoLand</td><td>S$2B+</td><td>Premium CBD</td><td><span class="tag tag-med">MED</span></td></tr>
+                    <tr><td><strong>OUE Downtown</strong></td><td>OUE</td><td>S$1B+</td><td>CBD, non-core to OUE</td><td><span class="tag tag-high">HIGH</span></td></tr>
+                    <tr><td><strong>Orchard Road retail</strong></td><td>Various</td><td>S$500M-2B</td><td>Stated target precinct</td><td><span class="tag tag-high">HIGH</span></td></tr>
+                    <tr><td><strong>UK Prime Office</strong></td><td>Various</td><td>£200-500M</td><td>ZERO UK exposure</td><td><span class="tag tag-buy">SOURCE</span></td></tr>
+                    <tr><td><strong>Sydney CBD Office</strong></td><td>Various</td><td>A$300-800M</td><td>ZERO AU exposure</td><td><span class="tag tag-buy">SOURCE</span></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">4. China Wind-Down — US$5.8B Recycling</h2>
+            <table>
+                <thead>
+                    <tr><th>Asset</th><th>Location</th><th>Value</th><th>Status</th><th>Divestment</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>West Bund Central</strong></td><td>Shanghai</td><td>US$8B GDV</td><td>Phase 1 complete</td><td><span class="tag tag-low">LOW</span></td></tr>
+                    <tr><td><strong>WF CENTRAL</strong></td><td>Beijing</td><td>US$500M</td><td>Operating</td><td><span class="tag tag-low">LOW</span></td></tr>
+                    <tr><td><strong>Build-to-sell land bank</strong></td><td>Various China</td><td>US$5.8B</td><td><strong>WINDING DOWN</strong></td><td><span class="tag tag-high">HIGH</span></td></tr>
+                </tbody>
+            </table>
+            <p style="color: var(--text-light); margin-top: 12px;"><strong>Key:</strong> US$5.8B being recycled out of China → needs new deployment destinations</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">5. CP Engagement Strategy</h2>
             <div class="two-col">
                 <div class="card">
-                    <div class="card-title">📊 Fund Metrics</div>
-                    <p><strong>Current AUM:</strong> S$8.2B (US$6.4B)</p>
-                    <p><strong>Target GAV:</strong> S$15B in 5 years</p>
-                    <p><strong>Vacancy:</strong> 1.0% committed</p>
-                    <p><strong>Rent growth:</strong> S$11.1 psf (+2% YoY)</p>
+                    <div class="card-title">Phase 1: Singapore Sourcing</div>
+                    <p>Source off-market Singapore CBD/Orchard opportunities</p>
+                    <p style="margin-top: 8px;"><strong>Fee:</strong> 0.5-1% origination</p>
                 </div>
                 <div class="card">
-                    <div class="card-title">🏛️ Anchor Investors</div>
-                    <p><strong>QIA</strong> — Qatar Investment Authority</p>
-                    <p><strong>APG</strong> — Dutch pension fund</p>
-                    <p style="margin-top: 12px; font-size: 12px; color: var(--text-muted);">Both seeking Asia diversification</p>
+                    <div class="card-title">Phase 2: UK/AU Market Entry</div>
+                    <p>Prepare UK prime office + Sydney commercial pipeline</p>
+                    <p style="margin-top: 8px;"><strong>Fee:</strong> Retainer + transaction success</p>
                 </div>
             </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">4. Hong Kong Central Portfolio</h2>
-            <p class="section-intro">Premium office and luxury retail in Central — US$22.8B valuation.</p>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Asset</th>
-                        <th>Type</th>
-                        <th>Est. Value</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Exchange Square (1/2/3)</strong></td>
-                        <td>Office</td>
-                        <td>~US$5B</td>
-                        <td>HKEX bought top 9 floors Apr 2025</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Jardine House</strong></td>
-                        <td>Office</td>
-                        <td>~US$2B</td>
-                        <td>Iconic 52-storey tower</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Chater House</strong></td>
-                        <td>Office</td>
-                        <td>~US$1.5B</td>
-                        <td>Premium Central</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Prince's Building</strong></td>
-                        <td>Mixed-use</td>
-                        <td>~US$1.5B</td>
-                        <td>Office + retail</td>
-                    </tr>
-                    <tr>
-                        <td><strong>LANDMARK Complex</strong></td>
-                        <td>Luxury Retail</td>
-                        <td>~US$4B</td>
-                        <td>US$1B transformation underway</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="card">
-                <div class="card-title">🏗️ LANDMARK Transformation</div>
-                <p><strong>Investment:</strong> US$1 billion (US$400M HKLand + US$600M tenants)</p>
-                <p><strong>Timeline:</strong> 3 years</p>
-                <p><strong>Outcome:</strong> 10 world-class multi-storey Maison destinations</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">5. China — Winding Down</h2>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Asset</th>
-                        <th>Location</th>
-                        <th>Value</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>West Bund Central</strong></td>
-                        <td>Shanghai</td>
-                        <td>US$8B GDV</td>
-                        <td>Flagship, completion 2025-27</td>
-                    </tr>
-                    <tr>
-                        <td><strong>WF CENTRAL</strong></td>
-                        <td>Beijing</td>
-                        <td>~US$500M</td>
-                        <td>Performing well</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Build-to-Sell Land Bank</strong></td>
-                        <td>Various</td>
-                        <td>US$5.8B net</td>
-                        <td style="background: #fef3c7;"><strong>WINDING DOWN</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div class="card">
-                <div class="card-title">💰 Capital Recycling Opportunity</div>
-                <p><strong>US$5.8B</strong> being redeployed from China Build-to-sell over 2024-2028.</p>
-                <p>This capital needs new homes — <strong>UK/AU could be targets.</strong></p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">6. UK/Australia Exposure</h2>
-            
-            <div style="background: #fed7d7; border-radius: 8px; padding: 24px; text-align: center; margin-bottom: 16px;">
-                <div style="font-size: 48px; margin-bottom: 8px;">🚫</div>
-                <div style="font-size: 24px; font-weight: 700; color: #c53030;">ZERO UK/AUSTRALIA EXPOSURE</div>
-                <p style="margin-top: 12px; color: #742a2a;">No direct investments in UK or Australia markets</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-title">🎯 Why This Matters</div>
-                <p>Hongkong Land wants "Asia's gateway cities" — London and Sydney are logical candidates.</p>
-                <p style="margin-top: 8px;">With US$5.8B recycling from China + third-party capital (QIA, APG), they need <strong>deal origination partners</strong> for new markets.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">7. Courtenay Partners Opportunity</h2>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Opportunity</th>
-                        <th>Capital Source</th>
-                        <th>Likelihood</th>
-                        <th>Fee Potential</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>UK industrial deal origination</strong></td>
-                        <td>China wind-down (US$5.8B)</td>
-                        <td><span class="tag tag-high">HIGH</span></td>
-                        <td>0.5-1% transaction</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sydney commercial introductions</strong></td>
-                        <td>SCPREF expansion</td>
-                        <td><span class="tag tag-medium">MEDIUM</span></td>
-                        <td>0.5-1% transaction</td>
-                    </tr>
-                    <tr>
-                        <td><strong>UK market entry advisory</strong></td>
-                        <td>Third-party capital</td>
-                        <td><span class="tag tag-medium">MEDIUM</span></td>
-                        <td>Retainer + success</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">8. Key Contacts</h2>
-            <div class="two-col">
-                <div class="card">
-                    <div class="card-title">Michelle Ling — CIO</div>
-                    <p><strong>Role:</strong> Chief Investment Officer</p>
-                    <p><strong>Responsibility:</strong> Acquisition pipeline, fund strategy</p>
-                    <p style="margin-top: 8px; padding: 8px; background: #c6f6d5; border-radius: 4px;"><strong>✓ Adam's contact from Japan trip</strong></p>
-                </div>
-                <div class="card">
-                    <div class="card-title">Michael Smith — CEO</div>
-                    <p><strong>Background:</strong> Ex-Mapletree (7+ years)</p>
-                    <p><strong>Focus:</strong> Strategic direction, Vision 2035</p>
-                    <p style="margin-top: 8px; color: var(--text-muted);">Driving pivot to fund management model</p>
-                </div>
+            <div class="action-box">
+                <div class="action-title">📋 NEXT STEPS</div>
+                <ol style="margin-left: 20px; color: var(--text-light);">
+                    <li>Email Michelle re: SCPREF acquisition pipeline — <strong>This week</strong></li>
+                    <li>Prepare 3-5 UK prime office opportunities — <strong>1 week</strong></li>
+                    <li>Research Sydney CBD off-market deals — <strong>1 week</strong></li>
+                    <li>Draft HKL pitch deck — <strong>2 weeks</strong></li>
+                    <li>Schedule call with Michelle — <strong>ASAP</strong></li>
+                </ol>
             </div>
         </section>
 
         <footer class="footer">
             <p>Prepared by Courtenay Partners • 19 March 2026 • Confidential</p>
-            <p style="margin-top: 8px;"><a href="research/Hongkong_Land_Portfolio.xlsx" download style="color: var(--primary);">📊 Download Excel Data</a></p>
         </footer>
     </div>
 </body>
