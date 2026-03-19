@@ -9,18 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e3a5f;
-            --primary-light: #2c5282;
-            --accent: #c9a227;
-            --bg: #ffffff;
-            --bg-alt: #f8f9fa;
-            --text: #1a202c;
-            --text-light: #4a5568;
-            --text-muted: #718096;
-            --border: #e2e8f0;
-            --success: #38a169;
-            --warning: #d69e2e;
-            --danger: #e53e3e;
+            --primary: #3B82F6;
+            --primary-light: #60A5FA;
+            --accent: #F59E0B;
+            --bg: #0B1120;
+            --bg-alt: #131B2E;
+            --card-bg: #1A2332;
+            --text: #F8FAFC;
+            --text-light: #94A3B8;
+            --text-muted: #64748B;
+            --border: #1E293B;
+            --success: #22C55E;
+            --warning: #F59E0B;
+            --danger: #EF4444;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -30,12 +31,62 @@
             line-height: 1.6;
             font-size: 14px;
         }
+        /* Site Navigation */
+        .site-nav {
+            background: var(--card-bg);
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .site-nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        .site-nav-logo {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: white;
+        }
+        .site-nav-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .site-nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        .site-nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .site-nav-links a:hover {
+            color: var(--primary);
+        }
         .page { max-width: 1100px; margin: 0 auto; padding: 40px; }
         
         /* Header */
         .header {
             display: flex; justify-content: space-between; align-items: flex-start;
-            padding-bottom: 20px; border-bottom: 3px solid var(--primary); margin-bottom: 32px;
+            padding-bottom: 20px; border-bottom: 2px solid var(--border); margin-bottom: 32px;
         }
         .branding { display: flex; align-items: center; gap: 12px; }
         .logo {
@@ -44,7 +95,7 @@
             border-radius: 6px; display: flex; align-items: center; justify-content: center;
             font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; color: white;
         }
-        .company { font-size: 18px; font-weight: 600; color: var(--primary); }
+        .company { font-size: 18px; font-weight: 600; color: var(--text); }
         .doc-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
         .meta { text-align: right; font-size: 11px; color: var(--text-muted); }
         .confidential {
@@ -70,13 +121,13 @@
         .section { margin-bottom: 32px; }
         .section-title {
             font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600;
-            color: var(--primary); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border);
+            color: var(--text); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--border);
         }
         .section-intro { color: var(--text-light); margin-bottom: 16px; }
         
         /* Cards */
         .card {
-            background: var(--bg-alt); border-radius: 8px; padding: 20px; margin-bottom: 16px;
+            background: var(--card-bg); border-radius: 8px; padding: 20px; margin-bottom: 16px;
             border-left: 4px solid var(--primary);
         }
         .card-title { font-weight: 600; font-size: 15px; color: var(--primary); margin-bottom: 12px; }
@@ -84,8 +135,9 @@
         /* Tables */
         table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
         th { 
-            background: var(--primary); color: white; padding: 10px 12px; text-align: left;
+            background: var(--card-bg); color: var(--text); padding: 10px 12px; text-align: left;
             font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border);
         }
         td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
         tr:hover { background: var(--bg-alt); }
@@ -101,10 +153,10 @@
         
         /* Key Insight */
         .insight {
-            background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 8px;
+            background: var(--card-bg); border-radius: 8px;
             padding: 20px; margin-bottom: 24px; border-left: 4px solid var(--accent);
         }
-        .insight-title { font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .insight-title { font-weight: 700; color: var(--accent); margin-bottom: 8px; }
         
         /* Two column */
         .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -112,9 +164,10 @@
         
         /* Footer */
         .footer {
-            margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--border);
+            margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border);
             text-align: center; color: var(--text-muted); font-size: 11px;
         }
+        .footer a { color: var(--primary); }
         
         /* Back link */
         .back-link {
@@ -125,6 +178,18 @@
     </style>
 </head>
 <body>
+    <nav class="site-nav">
+        <a href="index.html" class="site-nav-brand">
+            <div class="site-nav-logo">CP</div>
+            <span class="site-nav-title">Courtenay Partners</span>
+        </a>
+        <div class="site-nav-links">
+            <a href="index.html#overview">Overview</a>
+            <a href="index.html#research">Research</a>
+            <a href="index.html#pipeline">Pipeline</a>
+            <a href="index.html#economics">Economics</a>
+        </div>
+    </nav>
     <div class="page">
         <a href="index.html#research" class="back-link">← Back to Research</a>
         

@@ -12,12 +12,12 @@
             --primary: #1e3a5f;
             --primary-light: #2c5282;
             --accent: #c9a227;
-            --bg: #ffffff;
-            --bg-alt: #f8f9fa;
-            --text: #1a202c;
-            --text-light: #4a5568;
-            --text-muted: #718096;
-            --border: #e2e8f0;
+            --bg: #0B1120;
+            --bg-alt: #131B2E;
+            --text: #F8FAFC;
+            --text-light: #94A3B8;
+            --text-muted: #64748B;
+            --border: #1E293B;
             --success: #38a169;
             --warning: #d69e2e;
             --danger: #e53e3e;
@@ -72,7 +72,7 @@
         .section-intro { color: var(--text-light); margin-bottom: 16px; }
         
         .card {
-            background: var(--bg-alt); border-radius: 8px; padding: 20px; margin-bottom: 16px;
+            background: #1A2332; border-radius: 8px; padding: 20px; margin-bottom: 16px;
             border-left: 4px solid var(--primary);
         }
         .card-title { font-weight: 600; font-size: 15px; color: var(--primary); margin-bottom: 12px; }
@@ -83,7 +83,7 @@
             font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
         }
         td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-        tr:hover { background: var(--bg-alt); }
+        tr:hover { background: #1A2332; }
         
         .tag {
             display: inline-block; padding: 3px 10px; border-radius: 4px;
@@ -118,7 +118,7 @@
         .back-link:hover { text-decoration: underline; }
 
         .region-card {
-            background: var(--bg-alt); border-radius: 8px; padding: 16px; text-align: center;
+            background: #1A2332; border-radius: 8px; padding: 16px; text-align: center;
         }
         .region-flag { font-size: 28px; margin-bottom: 8px; }
         .region-name { font-weight: 600; color: var(--primary); margin-bottom: 4px; }
@@ -126,7 +126,17 @@
         .region-detail { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
     </style>
 </head>
+<style>
+.site-nav{background:#1A2332;padding:12px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1E293B;position:sticky;top:0;z-index:100}
+.site-nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#F8FAFC}
+.site-nav-logo{width:36px;height:36px;background:linear-gradient(135deg,#3B82F6,#60A5FA);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:Space Grotesk,sans-serif;font-weight:700;font-size:14px;color:white}
+.site-nav-title{font-family:Space Grotesk,sans-serif;font-weight:600;font-size:16px}
+.site-nav-links{display:flex;gap:24px}
+.site-nav-links a{color:#94A3B8;text-decoration:none;font-size:14px}
+.site-nav-links a:hover{color:#3B82F6}
+</style>
 <body>
+<nav class="site-nav"><a href="index.html" class="site-nav-brand"><div class="site-nav-logo">CP</div><span class="site-nav-title">Courtenay Partners</span></a><div class="site-nav-links"><a href="index.html#overview">Overview</a><a href="index.html#research">Research</a><a href="index.html#pipeline">Pipeline</a></div></nav>
     <div class="page">
         <a href="index.html#research" class="back-link">← Back to Research</a>
         
